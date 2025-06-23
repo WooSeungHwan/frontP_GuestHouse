@@ -1,0 +1,12 @@
+# macOS 시스템 파일
+.DS_Store
+
+# VSCode 편집기 설정 폴더
+.vscode/
+
+# 로그 파일 (혹시 생성되는 경우)
+*.log
+
+# 썸네일, 백업 파일 등
+Thumbs.db
+*.bak
