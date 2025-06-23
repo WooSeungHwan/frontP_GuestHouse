@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles/common.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<title>header</title>
+<style>
+	#logo {
+		height: 70px;
+	}
+	#header {
+		display:flex;
+		width: 100%;
+		height: 100px;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 100px;
+		box-shadow: 2px 2px 5px rgba(8, 145, 141, 0.5);
+	}
+	.header-right > button {
+		margin-left: 30px;
+	}
+</style>
+</head>
+<body>
+<nav class="nav" id="header">
+	<div class="header-left">
+		<img alt="" src="../assets/icons/logo_color.png" id="logo" />
+	</div>
+	<div class="header-right">
+		<a style="color:#067975"><b><ins>KOR</ins></b></a>
+        &nbsp; &nbsp; <!-- css 할 때 padding 쓰기 -->
+        <a style="color:#067975"><b>ENG</b></a>
+        &nbsp; &nbsp;
+        <button id="login-btn">로그인</button>
+	</div>
+</nav>
+</body>
+</html>
