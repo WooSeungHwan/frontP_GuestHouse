@@ -1,155 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.0/YJ-Jalnan.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-  <title>main Page</title>
+    <style>
+      .s-tag{
+        font-family: 'YJ JALNAN';
+        font-size: 16px;
+        color: #08918d;
+        position: relative;
+        left: 430px;
+        margin-top: 100px;
+        margin-bottom: -5px;
 
-  <script type="text/javascript">   
-    $(document).ready(function() { 
-      $("#header-main").load("./header.html");
-      $("#footer-main").load("./footer.html");
-      $("#search-bar-main").load("./search-bar.html");
-    }); 
-  </script>
-<script>
-$(()=>{
-	$('.icons').slick({
-		  dots: true,
-		  infinite: true,
-		  speed: 300,
-		  slidesToShow: 1,
-		  centerMode: true,
-		  variableWidth: true,
-		  autoplay: true,          // 자동 재생 활성화
-		  autoplaySpeed: 3000      // 3초마다 슬라이드 전환 (원하는 속도로 조정 가능)
+      }
+      .m-tag{
+        font-family: 'YJ JALNAN';
+        font-size: 38px;
+        color: #404040;
+        position: relative;
+        left: 430px;
 
-	
-		});
+      }
 
-});
+      .l-tag{ 
+        font-family: 'YJ JALNAN';
+        font-size: 16px;
+        color: #B3B3B3;
+        position: relative;
+        left: 430px;
 
-</script>
+      }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Noto Sans KR', sans-serif;
-      background: #fff;
-      margin: 0;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    /* header-banner {
+      .main-pic {
+        width: 100%;
+        position: relative;
+        
+      }
+      .main-pic img {
       width: 100%;
-      height: 400px;
-      background: url('https://via.placeholder.com/1280x400') center/cover no-repeat;
-      position: relative;
-    } */
-    .section {
-      padding: 60px 40px 30px;
-    }
-    .section h2 {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-     /* .card-row {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      justify-content: center;
-    } */
-    .card {
-      flex: 0 0 auto;
+      height: 500px;
+      display: block;
+      }   
+
+
+
+      .rounded{
       width: 180px;
       height: 180px;
       border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      background: none;
-      padding: 0;
-      margin: 0;
 
-    } 
-     .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      border: none;
-    } 
-    .card p {
-      padding: 10px;
-      font-size: 14px;
-      background: white;
-      text-align: center;
-    }
-    .banner {
-      width: 90%;
-      margin: 30px auto;
-      display: block;
-    }
-    .why-choose {
-      width: 100%;
-      background: #eaf6fb;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
 
-    .why-choose img {
-        width: 100%;               
-        height: auto;
-        display: block;
-    }
+      }
 
-    .promo-row {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .promo-card {
-      width: 200px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .promo-card img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-    }
-    .promo-card p {
-      padding: 10px;
-      font-size: 14px;
-      background: white;
-      text-align: center;
-    }
-    .main-pic {
-      width: 100%;
-      position: relative;
-    }
-    .main-pic img {
-     width: 100%;
-     height: 500px;
-     display: block;
-    }   
+      .mt-2{
+        text-align: left;
+      }
+
+      .slider {
+        position: relative;
+        padding: 0 40px; /* 좌우 공간 확보 */
+        overflow: visible; /* ← 이게 중요 */
+
+      }
+
+      .slider img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      } 
+
+.slick-prev:before, .slick-next:before {
+  color: #333;  /* 화살표 색상 (흰색 배경이면 어두운 색 추천) */
+  font-size: 30px;
+  opacity: 1;   /* 혹시 모를 투명화 방지 */
+}
     .banner-row {
         display: flex;
         justify-content: center; 
@@ -163,88 +100,202 @@ $(()=>{
         display: block;
     }
 
-    .h2-text{
-        position: relative;
-        left: 430px;
-    }
-    .p-tag{
-        font-size: 16px;
-        left: 50%;
+        .why-choose {
+      width: 100%;
+      background: #eaf6fb;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
+    .why-choose img {
+        width: 100%;               
+        height: auto;
+        display: block;
+    }
+.card-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 
-  </style>
+.card-box img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+.card-text {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+
+
+
+      
+    </style> 
+
+    <title>Search Page</title>
+  <script type="text/javascript">   
+    $(document).ready(function() { 
+      $("#header-main").load("./header.html");
+      $("#footer-main").load("./footer.html");
+      $("#search-bar-main").load("./search-bar.html");
+
+$('.slider-korea').slick({
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+$('.slider-global').slick({
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+$('.slider-event').slick({
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+
+
+    }); 
+  </script>
 </head>
-
 <body>
   <div id="header-main"></div>
   <div class="main-pic"><img src="./assets/images/main_main.png" alt="배경이미지"></div>
   <div id="search-bar-main"  style="position: absolute;  left: 50%; transform: translateX(-50%); z-index: 10; margin-top: -60px; opacity: 1; "></div>
 
-  <!-- 국내 인기 여행지 -->
-   
-    <div class="responsive">
-        <div class="card-wrapper"> 
-            <div class="card"><img src="./assets/images/main_ko_jeju.png"></div><p>제주도</p>
-        </div>
-        <div class="card-wrapper">
-            <div class="card"><img src="./assets/images/main_ko_seoul.png"></div><p>서울</p>
-
-        </div>
-        <div class="card-wrapper">
-            <div class="card"><img src="./assets/images/main_ko_busan.jpg"></div><p>부산</p>
-        </div>
-        <div class="card-wrapper">
-            <div class="card"><img src="./assets/images/main_ko_gangneung.png"></div><p>강릉</p>
-        </div>
-    </div>
-
-    
-  <!-- <div class="section">
-    <p class="p-tag">HOT</p>
-    <h2 class="h2-text">국내 인기 여행지</h2>
-    <div class="card-row">
-        <div class="card-wrapper"> 
-      <div class="card"><img src="./assets/images/main_ko_jeju.png"></div><p>제주도</p>
-        </div>
-        <div class="card-wrapper">
-            <div class="card"><img src="./assets/images/main_ko_seoul.png"></div><p>서울</p>
-
-        </div>
-        <div class="card-wrapper">
-            <div class="card"><img src="./assets/images/main_ko_busan.jpg"></div><p>부산</p>
-        </div>
-        <div class="card-wrapper">
-            <div class="card"><img src="./assets/images/main_ko_gangneung.png"></div><p>강릉</p>
-        </div>
-      
-      
-    </div>
-  </div> -->
-
-  <!-- 해외 인기 여행지 -->
-  <div class="section">
-    <p class="p-tag">HOT</p>
-    <h2 class="h2-text">해외 인기 여행지</h2>
-    <div class="card-row">
-    <div class="card-wrapper">
-        <div class="card"><img src="./assets/images/main_glo_tokyo.png"></div><p>도쿄</p>
-    </div>
-    <div class="card-wrapper">
-        <div class="card"><img src="./assets/images/main_glo_osaka.png"></div><p>오사카</p>
-    </div>
-    <div class="card-wrapper">
-        <div class="card"><img src="./assets/images/main_glo_singapore.png"></div><p>싱가포르</p>
-    </div>
-    <div class="card-wrapper">
-        <div class="card"><img src="./assets/images/main_glo_bankok.png"></div><p>방콕</p>
-    </div>
-      
-      
-      
-      
-    </div>
+  <div>
+    <p class="s-tag">HOT</p>
   </div>
+  <div>
+    <h2 class="m-tag">국내 인기 여행지</h2>
+  </div>
+
+<div class="slider slider-korea container my-4">
+  <div class="f-card">
+    <img src="./assets/images/main_ko_seoul.png" alt="서울" class="img-fluid rounded">
+    <p class="mt-2">서울</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_ko_busan.jpg" alt="부산" class="img-fluid rounded">
+    <p class="mt-2">부산</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_ko_jeju.png" alt="제주" class="img-fluid rounded">
+    <p class="mt-2">제주</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_ko_gangneung.png" alt="강릉" class="img-fluid rounded">
+    <p class="mt-2">강릉</p>
+  </div>
+    <div>
+    <img src="./assets/images/main_ko_gangneung.png" alt="강릉" class="img-fluid rounded">
+    <p class="mt-2">여수</p>
+  </div>
+    <div>
+    <img src="./assets/images/main_ko_gangneung.png" alt="강릉" class="img-fluid rounded">
+    <p class="mt-2">순천</p>
+  </div>
+
+</div>
+
+
+
+    <div>
+    <p class="s-tag">HOT</p>
+  </div>
+  <div>
+    <h2 class="m-tag">해외 인기 여행지</h2>
+  </div>
+
+<div class="slider slider-global container my-4">
+  <div>
+    <img src="./assets/images/main_glo_tokyo.png" alt="도쿄" class="img-fluid rounded">
+    <p class="mt-2">도쿄</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_glo_osaka.png" alt="오사카" class="img-fluid rounded">
+    <p class="mt-2">오사카</p>
+  </div>
+  <div>
+    <img src=".//assets/images/main_glo_singapore.png" alt="싱가포르" class="img-fluid rounded">
+    <p class="mt-2">싱가포르</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_glo_bankok.png" alt="방콕" class="img-fluid rounded">
+    <p class="mt-2">방콕</p>
+  </div>
+    <div>
+    <img src="./assets/images/main_glo_bankok.png" alt="방콕" class="img-fluid rounded">
+    <p class="mt-2">라오스</p>
+  </div>
+
+</div>
 
   <!-- 배너 -->
    <div class="banner-row">
@@ -261,60 +312,40 @@ $(()=>{
     
   </div>
 
-  <!-- 이번 주 프로모션 -->
-  <div class="section">
-    <p class="p-tag">EVENT</p>
-    <h2> 이번 주 프로모션</h2>
-    <div class="promo-row">
-      <div class="promo-card"><img src="./assets/images/main_prom_1.png"><p>발리 기념일 특가</p></div>
-      <div class="promo-card"><img src="./assets/images/main_prom_2.png"><p>당신의 항공권 할인!</p></div>
-      <div class="promo-card"><img src="./assets/images/main_prom_3.png"><p>여름휴가 얼리버드</p></div>
-      <div class="promo-card"><img src="./assets/images/main_prom_4.png"><p>더블 혜택 대만!</p></div>
-    </div>
+
+  <div>
+    <p class="s-tag">EVENT</p>
   </div>
+  <div>
+    <h2 class="m-tag">이번 주 프로모션</h2>
+  </div>
+  <div>
+    <h3 class="l-tag">나를 위한 근사한 휴가, 할인 혜택 더하기</h3>
+  </div>
+
+<div class="slider slider-event container my-5">
+  <div class="card-box">
+    <img src="./assets/images/main_prom_1.png" alt="이벤트1">
+    <div class="card-text">열기구체험 50%할인중</div>
+  </div>
+  <div class="card-box">
+    <img src="./assets/images/main_prom_2.png" alt="이벤트2">
+    <div class="card-text">아시아나 항공사 특가</div>
+  </div>
+  <div class="card-box">
+    <img src="./assets/images/main_prom_3.png" alt="이벤트3">
+    <div class="card-text">여름맞이 평창&제주 할인</div>
+  </div>
+  <div class="card-box">
+    <img src="./assets/images/main_prom_4.png" alt="이벤트4">
+    <div class="card-text">티웨이항공 티켓 특가</div>
+  </div>
+</div>
+
 
   <div id="footer-main"></div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-<script>
-  $(document).ready(function () {
-    $('.responsive').slick({
-    dots: true,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    responsive: [
-        {
-        breakpoint: 1024,
-        settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-        }
-        },
-        {
-        breakpoint: 600,
-        settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-        }
-        },
-        {
-        breakpoint: 480,
-        settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-        }
-        }
-    ]
-    });
-  });
-</script>
 
 </body>
 </html>
