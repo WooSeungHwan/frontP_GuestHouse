@@ -208,12 +208,17 @@
     <img id="mypage-profile" src="./assets/icons/default_profile.png" alt="user-profile">
     <button id="mypage-modify-btn">회원정보 수정</button>
     <div class="modify-info">
-        <div class="mypage-field">회원 이름<input type="text" placeholder="홍길동" class="mypage-input"></div>
-        <div class="mypage-field">아이디<input type="text" value="gildong" disabled="disabled" class="mypage-input"></div>
+        <div class="mypage-field">회원 이름<input type="text" class="mypage-input" value="홍길동"></div>
+        <div class="mypage-field">아이디<input type="text" class="mypage-input" value="gildong" disabled="disabled"></div>
         <div class="mypage-field">비밀번호 <button id="mypage-pw-btn" class="mypage-input">비밀번호 변경</button></div>
-        <div class="mypage-field">연락처<input type="text" placeholder="010-1234-5678" class="mypage-input"></div>
-        <div class="mypage-field">생년월일<input type="text" placeholder="2000-12-14" class="mypage-input"></div>
-        <div class="mypage-field">성별<div id="mypage-gender"><input type="radio" id="gender" name="gender" class="mypage-gender"><label for="gender">여성</label><input type="radio" id="gender" name="gender" class="mypage-gender"><label for="gender">남성</label></div></div>
+        <div class="mypage-field">연락처<input type="text" class="mypage-input" value="010-1234-5678"></div>
+        <div class="mypage-field">생년월일<input type="text" class="mypage-input" value="2000-12-14"></div>
+        <div class="mypage-field">성별
+            <div id="mypage-gender">
+                <input type="radio" id="gender" name="gender" class="mypage-gender"><label for="gender">여성</label>
+                <input type="radio" id="gender" name="gender" class="mypage-gender" checked="checked"><label for="gender">남성</label>
+            </div>
+        </div>
     </div>
     <div id="mypage-logout"><ins>로그아웃</ins></div>
 
