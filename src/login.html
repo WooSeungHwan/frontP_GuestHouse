@@ -32,11 +32,11 @@
 
     .subtitle {
       font-size: 14px;
-      color: #333;
-      margin-bottom: 20px;
+      color: #404040;
+      margin-bottom: 50px;
     }
 
-    .id-btn,
+    .form-control ,
     .join,
     .social-btn {
       margin-bottom: 15px;
@@ -57,7 +57,7 @@
       cursor: pointer;
       width: 100%;
       margin-bottom: 15px;
-      height: 40px;
+      height: 45px;
       transition: transform 0.1s ease-in-out;
     }
 
@@ -131,7 +131,22 @@
 
     .login-cc{
         font-weight: 700;
+        color: white;
         /* color: #404040; */
+    }
+
+    #id-btn-login {
+      width: 300px;
+      height: 50px;
+      font-weight: 700;
+      background-color: #404040;
+      color: white;
+      border-radius: 10px;
+    }
+
+    #id-btn-login:hover {
+      background-color: #666666;
+      cursor: pointer;
     }
 
   </style>
@@ -141,7 +156,7 @@
     <div id="header-login"></div>
 
     <div class="container">
-        <div class="logo" style="margin-top: 100px">
+        <div class="logo" style="margin-top: 50px">
             <img src="./assets/icons/logo_color.png" alt="staypick 로고">
         </div>
         <div>
@@ -157,8 +172,7 @@
         <div class="login-box">
 
         <div class="id-btn">
-           <button class="btn btn-outline-dark btn-block mb-3 " onclick="location.href='./main.html'">
-            <p class="login-cc">로그인</p></button>
+          <button id="id-btn-login" class="mb-3" onclick="location.href='./main.html'">로그인</button>
         </div>
         <div class="login-links">
             <a href="#">아이디 찾기</a>
@@ -198,6 +212,6 @@
         </div>
     </div>
 
-    <div id="footer-login" style="margin-top: 150px"></div>
+    <div id="footer-login" style="margin-top: 100px"></div>
 </body>
 </html>
