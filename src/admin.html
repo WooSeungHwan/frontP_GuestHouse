@@ -18,6 +18,9 @@
         .col-lg-10{
             background-color: #F2F2F7;
         }
+        .container-fluid{
+            margin-top:5px;
+        }
 
         .sidebar{
             height: 100vh;
@@ -136,7 +139,7 @@
         
         .section-2-box{
             background-color: #FCFCFC;
-            width: 330px;
+            width: 390px;
             box-shadow: 0 19px 38px rgba(0,0,0,0.20), 0 5px 6px rgba(0,0,0,0.22);
             padding: 18px;
             border-radius: 10px;
@@ -149,15 +152,11 @@
             margin: 20px;
             justify-content: space-between;
         }
-        #section-3{
+        .section-3{
             margin: 20px;
-            width: 580px;
+            width: 100%;
             background-color: #FCFCFC;
             border-radius: 10px;
-            gap: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             box-shadow: 0 19px 38px rgba(0,0,0,0.20), 0 5px 6px rgba(0,0,0,0.22);
         }
         
@@ -174,7 +173,7 @@
             border-radius: 10px;
             box-shadow: 0 19px 38px rgba(0,0,0,0.20), 0 5px 6px rgba(0,0,0,0.22);
         }
-        #section-middle1{
+        .section-middle1{
             display: flex;
             justify-content: space-between;
         }
@@ -235,6 +234,52 @@
         }
         .drop-down-btn{
              border-radius: 50%;
+        }
+        #user-table{
+            margin: 20px;
+            width: 750px;
+            color: #404040;
+        }
+        #pie-chart-section{
+            width: 600px;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        thead, tbody {
+            display: block;
+        }
+
+        thead tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        tbody {
+            max-height: 220px;
+            overflow-y: scroll;
+        }
+
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .user-profile {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            padding-right: 5px;
+        }
+        #bar-chart{
+            
         }
 
     </style>
@@ -307,11 +352,11 @@
                     <div class="section-2-box" id="section-2-3">Hosting Registration Date : <b>2024-12-14</b></div>
                     <div class="section-2-box" id="section-2-4">Business Phone Number : <b>02-1234-5678</b></div>
                 </div>
-                <div id="section-3">
+                <div class="section-3">
                     <canvas id="donut-chart"></canvas>
                 </div>
             </div>
-            <div id="section-middle1">
+            <div class="section-middle1">
                 <div id="section-middle-1">
                     <canvas id="cumulative-sales" width="450" height="290"></canvas>
                 </div>
@@ -358,6 +403,84 @@
                     <div class="card-bottom">this week</div>
                 </div>
             </div>
+            <div class="section-middle1">
+                <div class="section-3">
+                    <table class="table table-hover" id="user-table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Joined Date</th>
+                        <th>Phone Number</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <img src="assets/images/user-profile.jpeg" class="user-profile">John
+                        </td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/user-profile.jpeg" class="user-profile">John</td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/user-profile.jpeg" class="user-profile">John</td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/user-profile.jpeg" class="user-profile">John</td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/user-profile.jpeg" class="user-profile">John</td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/user-profile.jpeg" class="user-profile">John</td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/user-profile.jpeg" class="user-profile">John</td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/images/user-profile.jpeg" class="user-profile">John</td>
+                        <td>john@example.com</td>
+                        <td>2024-04-12</td>
+                        <td>010-1231-2341</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="section-3" id="pie-chart-section">
+                    <canvas id="pie-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="section-middle1">
+                <div class="section-3">
+                    <canvas id="bubble-chart" width="500px" height="500px"></canvas>
+                </div>
+                <div class="section-3">
+                    <canvas id="bar-chart" width="480px" height="480px"></canvas>
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -402,74 +525,272 @@
                             },
                         }
                     };
-	            new Chart(ctx, config);
-	            </script>
-                <script>
-                    function cumulative(data) {
-                        let result = [];
-                        data.reduce((acc, cur) => {
-                        const sum = acc + cur;
-                        result.push(sum);
-                        return sum;
-                    }, 0);
-                    return result;
-                    }
-		            const ctx2 = document.querySelector("#cumulative-sales");
-		                let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	    new Chart(ctx, config);
+	</script>
+    <script>
+        function cumulative(data) {
+            let result = [];
+            data.reduce((acc, cur) => {
+                const sum = acc + cur;
+                result.push(sum);
+                return sum;
+            }, 0);
+                return result;
+        }
+		    const ctx2 = document.querySelector("#cumulative-sales");
+		        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-		            const data_2023 = {
-                            label: '2023',
-                            data: cumulative([100, 99, 110, 100, 112, 116, 120, 119, 99, 84, 99, 100]),
-                            backgroundColor: '#FFDA32',
-                            borderColor: '#FFDA32',
-                            borderWidth: 2,
-                        };
+		    const data_2023 = {
+                label: '2023',
+                data: cumulative([100, 99, 110, 100, 112, 116, 120, 119, 99, 84, 99, 100]),
+                backgroundColor: '#FFDA32',
+                borderColor: '#FFDA32',
+                borderWidth: 2,
+            };
 
-                        const data_2024 = {
-                            label: '2024',
-                            data: cumulative([60, 80, 100, 90, 130, 70, 130, 145, 100, 99, 101, 120]),
-                            backgroundColor: '#95ACF5',
-                            borderColor: '#95ACF5',
-                            borderWidth: 2,
-                        };
+            const data_2024 = {
+                label: '2024',
+                data: cumulative([60, 80, 100, 90, 130, 70, 130, 145, 100, 99, 101, 120]),
+                backgroundColor: '#95ACF5',
+                borderColor: '#95ACF5',
+                borderWidth: 2,
+            };
 
-                                let config2 = {
-                            type: "line",
-                            data: {
-                                labels: months,
-                                datasets: [data_2023, data_2024],
-                            },
-                            options: {
+                let config2 = {
+                    type: "line",
+                    data: {
+                        labels: months,
+                        datasets: [data_2023, data_2024],
+                    },
+                    options: {
                         responsive: true,
                         plugins: {
                             title: {
-                            display: true,
-                            text: 'Cumulative Monthly Sales',
-                            padding: {
+                                display: true,
+                                text: 'Cumulative Monthly Sales',
+                                padding: {
                                         top: 20,
                                         bottom: 5
                                     },
-                            font: {
-                                size: 20
-                            }
+                                font: {
+                                    size: 20
+                                }
                             },
                             legend: {
-                            position: 'top'
+                                position: 'top'
                             }
                         },
                         scales: {
                                 y: {
-                                beginAtZero: true,
-                                suggestedMax: 1500,
-                                ticks: {
-                                    stepSize: 200
-                                },
+                                    ticks: {
+                                        stepSize: 200
+                                    },
                                 },
                             }
-                            }
-                            }
+                        }
+                    }
 
-                    new Chart(ctx2, config2);
-            </script>
+            new Chart(ctx2, config2);
+    </script>
+<script>
+		const ctx3 = document.querySelector("#pie-chart");
+		const age = [ 'twenties', 'thirties', 'forties', 'fifties','sixties'];
+		const age_data = {
+			label : 'age',
+			data : [ 3500, 3000, 280, 260, 100 ],
+			backgroundColor : ['#CC99FF', '#FFDA99', '#F1FF99', '#69F37C', '#99F0FF'],
+			hoverOffset : 9
+		};
+		const data3 = {
+			labels : age,
+			datasets : [ age_data ]
+		};
+		const config3 = {
+            type: 'pie',
+            data: data3,
+                options: {
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                                },
+                            title: {
+                                display: true,
+                                text: 'User Ratio by Age Group',
+                                padding: {
+                                    top: 20,
+                                    bottom: -5
+                                },
+                                font: {
+                                    size: 20
+                                    }
+                                },
+                            },
+                        }
+                    };
+	    new Chart(ctx3, config3);
+	    </script>
+<script>
+  const ctx4 = document.getElementById('bubble-chart').getContext('2d');
+
+  const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+  //{x: 요일 index(0~6), y: 시간(0~23), r: 인원 수(버블 반지름)}
+  const bubbleData = [
+    { x: 0, y: 9, r: 10 },  
+    { x: 0, y: 7, r: 5 },   
+    { x: 0, y: 4, r: 2 },   
+    { x: 2, y: 20, r: 10 },  
+    { x: 2, y: 17, r: 7 },  
+    { x: 2, y: 13, r: 6 },  
+    { x: 2, y: 8, r: 2 },  
+    { x: 3, y: 8, r: 2 },
+    { x: 3, y: 9, r: 3 },
+    { x: 3, y: 12, r: 4 },
+    { x: 3, y: 17, r: 8 },  
+    { x: 3, y: 14, r: 12 },  
+    { x: 3, y: 4, r: 14 },  
+    { x: 4, y: 8, r: 2 },
+    { x: 4, y: 12, r: 2 },
+    { x: 4, y: 20, r: 4 },
+    { x: 4, y: 18, r: 8 },
+    { x: 5, y: 14, r: 8 },
+    { x: 5, y: 14, r: 8 },  
+    { x: 6, y: 22, r: 15 },  
+    { x: 4, y: 19, r: 12 }, 
+    { x: 1, y: 8,  r: 8  }   
+  ];
+
+  const data4 = {
+    labels: weekdays,
+    datasets: [{
+      label: 'Guest Check-in Patterns',
+      data: bubbleData,
+      backgroundColor: 'rgba(54, 162, 235, 0.6)',
+      borderColor: 'rgb(54, 162, 235)',
+      borderWidth: 1
+    }]
+  };
+
+  const config4 = {
+    type: 'bubble',
+    data: data4,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Check-in Volume by Day and Hour',
+          font: {
+            size: 20
+          },
+          padding: {
+                    top: 20,
+                    bottom: 5
+                        },
+                    font: {
+                        size: 20
+                    }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const day = weekdays[context.raw.x];
+              return `${day} ${context.raw.y}:00 - ${context.raw.r} guests`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom',
+          title: {
+            display: true,
+            text: 'Day of Week'
+          },
+          ticks: {
+            stepSize: 1,
+            callback: function(value) {
+              return weekdays[value] || '';
+            },
+            min: 0,
+            max: 6
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Hour of Day'
+          },
+          min: 0,
+          max: 24,
+          ticks: {
+            stepSize: 3
+          }
+        }
+      }
+    }
+  };
+
+  new Chart(ctx4, config4);
+</script>
+<script>
+		const ctx5 = document.querySelector("#bar-chart");
+		let months5 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+		const women = {
+			label : 'women' ,
+			data : [ 100, 99, 80, 90, 122, 150, 120, 119, 99, 84, 99, 100 ],
+			//backgroundColor : 'rgba(203,206,145, .4)',
+			backgroundColor : 'rgba(153, 102, 255, 0.2)',
+			borderColor :'rgb(153, 102, 255)',
+			borderWidth : 1,
+		};
+		const man = {
+			label : 'man',
+			data : [ 80, 90, 200, 120, 90, 190, 130, 145, 100, 99, 101, 120 ],
+			//backgroundColor : 'rgba(203,206,145,.5)',
+			backgroundColor : 'rgba(54, 162, 235, 0.2)',
+			borderColor : 'rgb(54, 162, 235)',
+			borderWidth : 1,
+		};
+
+		let config5 = {
+			type : "bar",
+			data : {
+				labels : months5,
+				datasets : [ women, man ],
+			},
+            options:{
+                plugins:{
+                    title: {
+                        display: true,
+                        text: 'Check-in Volume by Day and Hour',
+                    font: {
+                            size: 20
+                        },
+                    padding: {
+                    top: 20,
+                    bottom: 10
+                    },
+                    font: {
+                        size: 20
+                        }
+                    },
+                },
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 240,
+                        ticks: {
+                             stepSize: 30
+                        },
+                    },
+                }
+        }
+
+	}
+
+	new Chart(ctx5, config5);
+</script>
 </body>
 </html>
