@@ -20,9 +20,12 @@
 		padding: 10px 0;
 		box-shadow: 2px 2px 5px rgba(8, 145, 141, 0.5);
 	}
-	.header-right > button {
+	.header-left{
+		margin-left:200px;
+	}
+	.header-right button {
 		margin-left: 30px;
-		margin-right: 100px;
+		margin-right: 300px;
 	}
 	#login-btn{
             background-color: #067975;
@@ -30,6 +33,7 @@
             border: none;
             padding: 10px 16px;
             font-size: 16px;
+			font-weight: 600;
             cursor: pointer;
         }
 </style>
@@ -42,11 +46,11 @@
 		</a>
 	</div>
 	<div class="header-right">
-		<a style="color:#067975"><b><ins>KOR</ins></b></a>
+		<a id="kor" style="color:#067975"><b><ins>KOR</ins></b></a>
         &nbsp; &nbsp; <!-- css 할 때 padding 쓰기 -->
-        <a style="color:#067975"><b>ENG</b></a>
+        <a id="eng" style="color:#067975"><b>ENG</b></a>
         &nbsp; &nbsp;
-        <button id="login-btn">로그인</button> 
+        <a href="./login.html"><button id="login-btn">로그인</button></a>
 		<!-- 상세 & 마이 & 관리자 페이지에서 text 변경해야 함 -->
 	</div>
 </nav>

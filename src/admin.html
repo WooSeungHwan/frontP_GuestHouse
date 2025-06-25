@@ -12,6 +12,10 @@
         $(document).ready(function () {
             $("#header-admin").load("./header.html", function () {
             $('#login-btn').html('마이페이지'); // header 로딩 후 실행
+            $('.header-left').css('margin-left', '0');
+            $('.header-right > button').css('margin-right', '100px');
+            $('#kor').html(`<b>KOR<b>`);
+            $('#eng').html(`<b><ins>ENG</ins></b>`);
         });
 
             $("#footer-admin").load("./footer.html");
