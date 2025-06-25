@@ -13,8 +13,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
-    <!-- Jalnan2 CDN -->
-    <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/YJ-Jalnan2.css" rel="stylesheet" type="text/css">
 
     <style>
       @font-face {
@@ -58,6 +56,7 @@
         font-family: 'Mulish';
         font-size: 20px;
         font-weight: 700;
+        color: #404040;
       }
 
       
@@ -124,6 +123,13 @@
   justify-content: center;
   align-items: center;
 }
+/* 위치 조절 추가 */
+.slick-prev,
+.slick-next {
+  top: 45% !important;
+  transform: translateY(-50%);
+}
+
 
 /* 기존 텍스트 화살표 제거 */
 .slick-prev:before,
@@ -156,13 +162,16 @@
     }
     .banner {
       flex: 1 1 0;
-      aspect-ratio: 3 / 1; /* 가로:세로 비율 맞추기 */
-      overflow: hidden;
+      /* aspect-ratio: 3 / 1;  */
+      height: 180px;
+      position: relative;
+      /* overflow: hidden; */
     }
 
     .banner img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         display: block;
     }
 
@@ -194,9 +203,6 @@
       transition: border 0.3s ease;
     }
 
-    .card-box:hover {
-      border: 4px solid #2c3e50; /* 강조 색상 (진한 남색 계열) */
-    }
 
 
     .card-box img {
@@ -227,6 +233,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      opacity: 0.9;
 
     }
 
@@ -333,7 +340,30 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
 
   });
 
+  const banners = [
+    ['./assets/images/main_ban_1.png', './assets/images/main_ban_2.png'],
+    ['./assets/images/main_ban_3.png', './assets/images/main_ban_5.png']
+  ];
+
+  let currentIndex = 0;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % banners.length;
+
+    const container = document.getElementById('bannerContainer');
+    const images = container.querySelectorAll('img');
+
+  $(images[0]).fadeOut(300, function () {
+    $(this).attr('src', banners[currentIndex][0]).fadeIn(300);
+  });
+  $(images[1]).fadeOut(300, function () {
+    $(this).attr('src', banners[currentIndex][1]).fadeIn(300);
+  });
+}, 3000);
+
     }); 
+      
+
   </script>
 </head>
 <body>
@@ -414,7 +444,7 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
 </div>
 
   <!-- 배너 -->
-   <div class="banner-row">
+   <div class="banner-row" id="bannerContainer">
     <div class="banner">
         <img src="./assets/images/main_ban_1.png">
     </div>
@@ -458,8 +488,8 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
     <div class="card-text">티웨이항공 티켓 특가</div>
   </div>
     <div class="card-box">
-    <img src="./assets/images/main_prom_4.png" alt="이벤트4">
-    <div class="card-text">티웨이항공 티켓 특가</div>
+    <img src="./assets/images/main_prom_5.png" alt="이벤트4">
+    <div class="card-text">호캉스 선착순 특가</div>
   </div>
 
 </div>
