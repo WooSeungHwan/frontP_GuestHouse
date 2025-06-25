@@ -272,76 +272,74 @@
 
     <title>Search Page</title>
 
-  <script type="text/javascript">   
-    $(document).ready(function() { 
+    <script type="text/javascript">   
+      $(document).ready(function() { 
 
-      $("#header-main").load("./header.html");
-      $("#footer-main").load("./footer.html");
-      $("#search-bar-main").load("./search-bar.html", function () {
-  // 이 안에서는 search-bar.html이 완전히 로드된 이후이기 때문에
-  // 바로 DOM 요소 접근 가능, 여기서 직접 바인딩해줘야 함!
+        $("#header-main").load("./header.html");
+        $("#footer-main").load("./footer.html");
+        $("#search-bar-main").load("./search-bar.html", function () {
 
-  const locationSection = document.getElementById("location-section");
-  const locationDropdown = document.getElementById("location-dropdown");
-  const searchName = locationSection.querySelector(".search-name");
-  const searchBottom = locationSection.querySelector(".search-bottom");
+        const locationSection = document.getElementById("location-section");
+        const locationDropdown = document.getElementById("location-dropdown");
+        const searchName = locationSection.querySelector(".search-name");
+        const searchBottom = locationSection.querySelector(".search-bottom");
 
-  locationSection.addEventListener("click", function (e) {
-    e.stopPropagation();
-    locationDropdown.style.display =
-      locationDropdown.style.display === "block" ? "none" : "block";
-  });
+          locationSection.addEventListener("click", function (e) {
+            e.stopPropagation();
+            locationDropdown.style.display =
+              locationDropdown.style.display === "block" ? "none" : "block";
+          });
 
-  const listItems = locationDropdown.querySelectorAll("li");
-  listItems.forEach(item => {
-    item.addEventListener("click", function () {
-      const ko = item.getAttribute("data-ko");
-      const en = item.getAttribute("data-en");
-      searchName.textContent = ko;
-      searchBottom.textContent = en;
-      locationDropdown.style.display = 'none';
-    });
-  });
+          const listItems = locationDropdown.querySelectorAll("li");
+          listItems.forEach(item => {
+            item.addEventListener("click", function () {
+              const ko = item.getAttribute("data-ko");
+              const en = item.getAttribute("data-en");
+              searchName.textContent = ko;
+              searchBottom.textContent = en;
+              locationDropdown.style.display = 'none';
+            });
+          });
 
-  const guestSection = document.getElementById("guest-section");
-  const guestDropdown = document.getElementById("guest-dropdown");
+          const guestSection = document.getElementById("guest-section");
+          const guestDropdown = document.getElementById("guest-dropdown");
 
-  guestSection.addEventListener("click", function (e) {
-    e.stopPropagation();
-    guestDropdown.style.display =
-      guestDropdown.style.display === "block" ? "none" : "block";
-  });
+          guestSection.addEventListener("click", function (e) {
+            e.stopPropagation();
+            guestDropdown.style.display =
+              guestDropdown.style.display === "block" ? "none" : "block";
+          });
 
-  document.addEventListener("click", function (e) {
-    const isClickInsideGuest = guestSection.contains(e.target) || guestDropdown.contains(e.target);
-    if (!isClickInsideGuest) {
-      guestDropdown.style.display = "none";
-    }
-  });
+          document.addEventListener("click", function (e) {
+            const isClickInsideGuest = guestSection.contains(e.target) || guestDropdown.contains(e.target);
+            if (!isClickInsideGuest) {
+              guestDropdown.style.display = "none";
+            }
+          });
 
-  document.querySelectorAll(".increase").forEach(button => {
-    button.addEventListener("click", function () {
-      const countEl = this.parentElement.querySelector(".count");
-      let count = parseInt(countEl.textContent);
-      countEl.textContent = count + 1;
-    });
-  });
+          document.querySelectorAll(".increase").forEach(button => {
+            button.addEventListener("click", function () {
+              const countEl = this.parentElement.querySelector(".count");
+              let count = parseInt(countEl.textContent);
+              countEl.textContent = count + 1;
+            });
+          });
 
-  document.querySelectorAll(".decrease").forEach(button => {
-    button.addEventListener("click", function () {
-      const countEl = this.parentElement.querySelector(".count");
-      let count = parseInt(countEl.textContent);
-      if (count > 0) countEl.textContent = count - 1;
-    });
-  });
+          document.querySelectorAll(".decrease").forEach(button => {
+            button.addEventListener("click", function () {
+              const countEl = this.parentElement.querySelector(".count");
+              let count = parseInt(countEl.textContent);
+              if (count > 0) countEl.textContent = count - 1;
+            });
+          });
 
-  document.getElementById("guest-confirm").addEventListener("click", function () {
-    const adult = document.getElementById("adult-count").textContent;
-    const searchBottom = document.querySelector("#count-bottom");
-    searchBottom.innerHTML = `인원수 <span style="color: #404040;"><b>${adult}</b></span>`;
-    guestDropdown.style.display = "none";
-  });
-});
+          document.getElementById("guest-confirm").addEventListener("click", function () {
+            const adult = document.getElementById("adult-count").textContent;
+            const searchBottom = document.querySelector("#count-bottom");
+            searchBottom.innerHTML = `인원수 <span style="color: #404040;"><b>${adult}</b></span>`;
+            guestDropdown.style.display = "none";
+          });
+        });
 
 
       $("#header-main").load("./header.html", function() {
