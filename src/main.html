@@ -35,8 +35,8 @@
         margin-left: 295px;
         margin-top: 100px;
         margin-bottom: -2px;
-
       }
+
       .m-tag{
         font-family: 'Jalnan2';
         font-size: 38px;
@@ -144,6 +144,18 @@
   transform: translateY(-50%);
 }
 
+.slick-prev:hover, .slick-next:hover {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* 기존 텍스트 화살표 제거 */
 .slick-prev:before,
@@ -207,10 +219,10 @@
         height: auto;
         display: block;
     }
-    .why-choose img:hover {
+    /* .why-choose img:hover {
       cursor: pointer;
       opacity: 0.7;
-    }
+    } */
     /* .card-box {
       position: relative;
       overflow: hidden;
@@ -466,7 +478,7 @@ $('.slider-event .slick-prev').css('visibility', 'hidden');
   });
 
   const banners = [
-    ['./assets/images/main_banner_03.png', './assets/images/main_ban_2.png'],
+    ['./assets/images/main_ban_7.jpeg', './assets/images/main_ban_6.jpeg'],
     ['./assets/images/main_ban_3.png', './assets/images/main_ban_5.png']
   ];
 
@@ -571,10 +583,10 @@ $('.slider-event .slick-prev').css('visibility', 'hidden');
   <!-- 배너 -->
    <div class="banner-row" id="bannerContainer" style="margin-top: 100px;">
     <div class="banner">
-        <img src="./assets/images/main_banner_03.png">
+        <img src="./assets/images/main_ban_7.jpeg">
     </div>
     <div class="banner">
-        <img src="./assets/images/main_ban_2.png">
+        <img src="./assets/images/main_ban_6.jpeg">
     </div>
    </div>
   <!-- Why Choose Us -->

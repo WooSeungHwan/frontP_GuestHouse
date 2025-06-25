@@ -13,7 +13,7 @@
             $("#header-admin").load("./header.html", function () {
             $('#login-btn').html('마이페이지'); // header 로딩 후 실행
             $('.header-left').css('margin-left', '0');
-            $('.header-right > button').css('margin-right', '100px');
+            $('.header-right button').css('margin-right', '100px');
             $('#kor').html(`<b>KOR<b>`);
             $('#eng').html(`<b><ins>ENG</ins></b>`);
         });
@@ -284,13 +284,15 @@
             /* padding-right: 5px; */
             margin-right: 10px; 
         }
-        #bar-chart{
-            
+        #header-top{
+            height: 100px;
+            background-color: white;
         }
 
     </style>
 </head>
 <body>
+    <div id="header-top"></div>
     <div id="header-admin"></div>
 <div class="container-fluid">
         <div class="row">

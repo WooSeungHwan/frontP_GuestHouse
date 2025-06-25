@@ -23,6 +23,7 @@
     gap: 20px;
     background-color: white;
     position: relative;
+    z-index: 100;
 }
 #search-bar svg {
     margin-right: 5px;
@@ -172,8 +173,10 @@
     background-color: #FFDA32;
     opacity: 0.5;
     border: none;
-    padding: 5px 10px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    text-align: center;
     font-weight: bold;
     cursor: pointer;
 }
@@ -354,7 +357,7 @@ flatpickr("#date-input", {
         const end = selectedDates[1];
         const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
         nameEl.style.display = "none";
-        display.innerHTML = `<span style="color: #404040; font-size="5px">${start.toLocaleDateString()} - ${end.toLocaleDateString()} <b>(${nights}박)</b></span>`;
+        display.innerHTML = `<span style="color: #404040; font-size="5px">${start.toLocaleDateString()} - ${end.toLocaleDateString()} <br><b>(${nights}박)</b></span>`;
         }
     }
 });
