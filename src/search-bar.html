@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <title>Document</title>
     <style>
-
+*{
+    box-sizing: border-box;
+}
 #search-bar {
     display: flex;
     align-items: center;
@@ -17,6 +22,7 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.1);
     gap: 20px;
     background-color: white;
+    position: relative;
 }
 #search-bar svg {
     margin-right: 5px;
@@ -24,7 +30,6 @@
 
 #search-bar > .search-section {
     padding: 8px;
-    margin-left: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -74,43 +79,364 @@
     color: #666666;
     font-size: 15px;
 }
+
+/* drop down */
+
+.dropdown-box {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    width: 220px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.dropdown-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+  
+}
+
+.dropdown-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.dropdown-text .ko {
+    font-weight: 600;
+    color: #404040;
+}
+
+.dropdown-text .en {
+    font-size: 13px;
+    color: #666666;
+}
+
+.dropdown-box li {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    /* border-bottom: 1px solid #f0f0f0; */
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.dropdown-box li:hover {
+    background-color: #f2f2f2;
+}
+
+.guest-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    display: none;
+    z-index: 999;
+}
+
+.guest-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.guest-control span {
+    min-width: 60px;
+    text-align: center;
+}
+
+.guest-control .count {
+    width: 30px;
+    text-align: center;
+    color: #404040;
+    font-weight: 600;
+}
+
+.guest-control button {
+    background-color: #FFDA32;
+    opacity: 0.5;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#guest-section{
+    position: relative;
+    width: 130px;
+}
+
+#guest-confirm:hover{
+    opacity: 0.5;
+}
+#date-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 15px;
+}
+
+#location-section{
+    width: 160px;
+}
+
+#date-section{
+    position: relative;
+    width: 195px;
+}
+#date-section svg {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0; /* 크기 줄어드는 것 방지 */
+}
+
     </style>
 </head>
 <body>
     <div id="search-bar">
-        <div class="search-section" id="location-section"> 
+        <div class="search-section" id="location-section">
             <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.65594 0C7.24088 0.00270323 4.92555 0.914156 3.21784 2.53442C1.51013 4.15468 0.54949 6.35146 0.546641 8.64286C0.543748 10.5154 1.18842 12.3371 2.38175 13.8286C2.38175 13.8286 2.63019 14.1389 2.67076 14.1837L9.65594 22L16.6444 14.1798C16.6809 14.1381 16.9301 13.8286 16.9301 13.8286L16.931 13.8262C18.1237 12.3354 18.7681 10.5145 18.7652 8.64286C18.7624 6.35146 17.8018 4.15468 16.094 2.53442C14.3863 0.914156 12.071 0.00270323 9.65594 0ZM9.65594 11.7857C9.0008 11.7857 8.36037 11.6014 7.81563 11.256C7.2709 10.9107 6.84633 10.4199 6.59562 9.84558C6.3449 9.27129 6.27931 8.63937 6.40712 8.02972C6.53493 7.42006 6.85041 6.86006 7.31367 6.42052C7.77693 5.98098 8.36715 5.68166 9.00971 5.56039C9.65227 5.43912 10.3183 5.50136 10.9236 5.73924C11.5288 5.97711 12.0462 6.37994 12.4102 6.89678C12.7741 7.41362 12.9684 8.02126 12.9684 8.64286C12.9673 9.47608 12.618 10.2749 11.997 10.864C11.376 11.4532 10.5341 11.7847 9.65594 11.7857Z" fill="#FFDA32"/>
             </svg>
             <div id="location-bottom">
                 <div class="search-name">지역</div>
                 <div class="search-bottom"><i>Search For A Destination</i></div>
+                
             </div>
+            <!-- 드롭다운 박스 -->
+                <div class="dropdown-box" id="location-dropdown">
+                <ul>
+                    <li data-ko="서울" data-en="Seoul">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">서울</div>
+                            <div class="en">Seoul</div>
+                        </div>
+                    </li>
+                    <li data-ko="부산" data-en="Busan">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">부산</div>
+                            <div class="en">Busan</div>
+                        </div>
+                    </li>
+                    <li data-ko="강릉" data-en="Gangneung">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">강릉</div>
+                            <div class="en">Gangneung</div>
+                        </div>
+                    </li>
+                    <li data-ko="속초" data-en="Sokcho">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">속초</div>
+                            <div class="en">Sokcho</div>
+                        </div>
+                    </li>
+                    <li data-ko="여수" data-en="Yeosu">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">여수</div>
+                            <div class="en">Yeosu</div>
+                        </div>
+                    </li>
+                    <li data-ko="제주" data-en="Jeju">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">제주</div>
+                            <div class="en">Jeju</div>
+                        </div>
+                    </li>
+                    <li data-ko="전주" data-en="Jeonju">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">전주</div>
+                            <div class="en">Jeonju</div>
+                        </div>
+                    </li>
+                    <li data-ko="포항" data-en="Pohang">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">포항</div>
+                            <div class="en">Pohang</div>
+                        </div>
+                    </li>
+                    <li data-ko="경주" data-en="Gyeongju">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">경주</div>
+                            <div class="en">Gyeongju</div>
+                        </div>
+                    </li>
+                    <li data-ko="대구" data-en="Daegu">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">대구</div>
+                            <div class="en">Daegu</div>
+                        </div>
+                    </li>
+                    <li data-ko="대전" data-en="Gyeongju">
+                        <img src="assets/icons/seoul.png" class="dropdown-icon" />
+                        <div class="dropdown-text">
+                            <div class="ko">대전</div>
+                            <div class="en">Daejeon</div>
+                        </div>
+                    </li>
+                </ul>
+                </div>
         </div>
-        <div class="search-section"> 
+        <div class="search-section" id="guest-section"> 
             <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.4043 10.6814C17.8304 11.7695 18.8297 13.2436 18.8297 15.209V18.7188H22.9934V15.209C22.9934 12.6586 19.2773 11.1494 16.4043 10.6814ZM14.666 9.35941C16.9664 9.35941 18.8297 7.26524 18.8297 4.67971C18.8297 2.09417 16.9664 0 14.666 0C14.1768 0 13.7188 0.116992 13.2816 0.280782C14.1773 1.52584 14.666 3.07855 14.666 4.67971C14.666 6.28086 14.1773 7.83357 13.2816 9.07863C13.7188 9.24242 14.1768 9.35941 14.666 9.35941ZM8.42048 9.35941C10.7209 9.35941 12.5842 7.26524 12.5842 4.67971C12.5842 2.09417 10.7209 0 8.42048 0C6.12004 0 4.25679 2.09417 4.25679 4.67971C4.25679 7.26524 6.12004 9.35941 8.42048 9.35941ZM8.42048 2.33985C9.56549 2.33985 10.5023 3.39279 10.5023 4.67971C10.5023 5.96663 9.56549 7.01956 8.42048 7.01956C7.27546 7.01956 6.33863 5.96663 6.33863 4.67971C6.33863 3.39279 7.27546 2.33985 8.42048 2.33985ZM8.42048 10.5293C5.64122 10.5293 0.0931091 12.097 0.0931091 15.209V18.7188H16.7478V15.209C16.7478 12.097 11.1997 10.5293 8.42048 10.5293ZM14.666 16.379H2.17495V15.2207C2.38314 14.3784 5.60999 12.8692 8.42048 12.8692C11.231 12.8692 14.4578 14.3784 14.666 15.209V16.379Z" fill="#FFDA32"/>
             </svg>
-             <div id="count-bottom">
+            <div id="count-bottom">
                 <div class="search-name">인원수</div>
                 <div class="search-bottom"><i>How Many Guests?</i></div>
             </div>
+            <div class="guest-dropdown" id="guest-dropdown">
+                <div class="guest-control">
+                    <button class="decrease">-</button>
+                    <span class="count" id="adult-count">1</span>
+                    <button class="increase">+</button>
+                </div>
+                <button id="guest-confirm" style="color: #404040; margin-top:10px; width: 100%; padding: 8px; background:#FFDA32; border:none; border-radius:5px; font-weight: 600; cursor: pointer;">확인</button>
+                </div>
         </div>
-        <div class="search-section">
+        <div class="search-section" id="date-section">
             <svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5.19022 11H7.87646V13.0591H5.19022V11ZM5.19022 15.1181H7.87646V17.1772H5.19022V15.1181ZM10.5627 11H13.2489V13.0591H10.5627V11ZM10.5627 15.1181H13.2489V17.1772H10.5627V15.1181ZM15.9352 11H18.6214V13.0591H15.9352V11ZM15.9352 15.1181H18.6214V17.1772H15.9352V15.1181Z" fill="#FFDA32"/>
-        <path d="M2.82863 22H21.722C23.2106 22 24.4211 21.0133 24.4211 19.8V4.4C24.4211 3.1867 23.2106 2.2 21.722 2.2H19.023V0H16.3239V2.2H8.22674V0H5.52769V2.2H2.82863C1.3401 2.2 0.129578 3.1867 0.129578 4.4V19.8C0.129578 21.0133 1.3401 22 2.82863 22ZM21.722 6.6L21.7234 19.8H2.82863V6.6H21.722Z" fill="#FFDA32"/>
+            <path d="M5.19022 11H7.87646V13.0591H5.19022V11ZM5.19022 15.1181H7.87646V17.1772H5.19022V15.1181ZM10.5627 11H13.2489V13.0591H10.5627V11ZM10.5627 15.1181H13.2489V17.1772H10.5627V15.1181ZM15.9352 11H18.6214V13.0591H15.9352V11ZM15.9352 15.1181H18.6214V17.1772H15.9352V15.1181Z" fill="#FFDA32"/>
+            <path d="M2.82863 22H21.722C23.2106 22 24.4211 21.0133 24.4211 19.8V4.4C24.4211 3.1867 23.2106 2.2 21.722 2.2H19.023V0H16.3239V2.2H8.22674V0H5.52769V2.2H2.82863C1.3401 2.2 0.129578 3.1867 0.129578 4.4V19.8C0.129578 21.0133 1.3401 22 2.82863 22ZM21.722 6.6L21.7234 19.8H2.82863V6.6H21.722Z" fill="#FFDA32"/>
             </svg>
             <div id="date-bottom">
                 <div class="search-name">날짜</div>
                 <div class="search-bottom"><i>Pick A Travel Period</i></div>
             </div>
+            <div class="date-dropdown" id="date-dropdown">
+                <input id="date-input" type="text" readonly
+       style="opacity: 0; position: absolute; width: 0; height: 0; pointer-events: none;">
+            </div>
+            <!-- <input id="date-input" placeholder="Pick a date" readonly> -->
         </div>
-        <div id="search-button">
-            <a href="./search.html">
-                <button id="search-btn">검색</button>
-            </a>
-        </div>
+        <div id="search-button"> 
+            <button id="search-btn">검색</button> </div>
     </div>
+<script>
+flatpickr("#date-input", {
+  mode: "range",
+  dateFormat: "Y-m-d",
+  numberOfMonths: 2,
+  onChange: function(selectedDates, dateStr) {
+    const nameEl = document.querySelector("#date-bottom .search-name");
+    const display = document.querySelector("#date-bottom .search-bottom");
+    if (selectedDates.length === 2) {
+      const start = selectedDates[0];
+      const end = selectedDates[1];
+      const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
+      nameEl.style.display = "none";
+      display.innerHTML = `<span style="color: #404040; font-size="5px">${start.toLocaleDateString()} - ${end.toLocaleDateString()} <b>(${nights}박)</b></span>`;
+    }
+  }
+});
+
+// 클릭 시 input을 trigger하여 캘린더 열기
+document.getElementById("date-section").addEventListener("click", () => {
+  document.getElementById("date-input")._flatpickr.open();
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const locationSection = document.getElementById("location-section");
+    const locationDropdown = document.getElementById("location-dropdown");
+    const searchName = locationSection.querySelector(".search-name");
+    const searchBottom = locationSection.querySelector(".search-bottom");
+
+    locationSection.addEventListener("click", function (e) {
+        e.stopPropagation();
+        locationDropdown.style.display =
+        locationDropdown.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function () {
+        locationDropdown.style.display = "none";
+    });
+
+    const listItems = locationDropdown.querySelectorAll("li");
+    listItems.forEach(item => {
+        item.addEventListener("click", function () {
+        const ko = item.getAttribute("data-ko");
+        const en = item.getAttribute("data-en");
+        searchName.textContent = ko;
+        searchBottom.textContent = en;
+        locationDropdown.style.display = 'none';
+        });
+    });
+
+    const guestSection = document.getElementById("guest-section");
+    const guestDropdown = document.getElementById("guest-dropdown");
+
+    // 토글: 인원수 영역 클릭 시 드롭다운 열기/닫기
+    guestSection.addEventListener("click", function (e) {
+        e.stopPropagation();
+        guestDropdown.style.display =
+        guestDropdown.style.display === "block" ? "none" : "block";
+    });
+
+    //바깥 클릭 시 드롭다운 닫기 (드롭다운 안쪽은 무시)
+    document.addEventListener("click", function (e) {
+    const isClickInsideGuest = guestSection.contains(e.target) || guestDropdown.contains(e.target);
+        if (!isClickInsideGuest) {
+            guestDropdown.style.display = "none";
+        }
+    });
+
+    // 수량 조절
+    document.querySelectorAll(".increase").forEach(button => {
+        button.addEventListener("click", function () {
+            const countEl = this.parentElement.querySelector(".count");
+            let count = parseInt(countEl.textContent);
+            countEl.textContent = count + 1;
+        });
+    });
+
+    document.querySelectorAll(".decrease").forEach(button => {
+        button.addEventListener("click", function () {
+            const countEl = this.parentElement.querySelector(".count");
+            let count = parseInt(countEl.textContent);
+            if (count > 0) countEl.textContent = count - 1;
+        });
+    });
+
+    document.getElementById("guest-confirm").addEventListener("click", function () {
+    const adult = document.getElementById("adult-count").textContent;
+
+    const searchBottom = document.querySelector("#count-bottom");
+    searchBottom.innerHTML = `인원수 <span style="color: #404040;"><b>${adult}</b></span>`;
+
+    guestDropdown.style.display = "none";
+});
+});
+
+</script>
+
+
 </body>
 </html>
