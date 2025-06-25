@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Flatpickr 스타일 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Flatpickr 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
     <style>
@@ -173,7 +178,69 @@
         $(document).ready( function() { 
             $("#header-search").load("./header.html");
             $("#footer-search").load("./footer.html");
-            $("#search-searchbar").load("./search-bar.html");
+            $("#search-searchbar").load("./search-bar.html", function () {
+                
+                const locationSection = document.getElementById("location-section");
+                const locationDropdown = document.getElementById("location-dropdown");
+                const searchName = locationSection.querySelector(".search-name");
+                const searchBottom = locationSection.querySelector(".search-bottom");
+
+                locationSection.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    locationDropdown.style.display =
+                    locationDropdown.style.display === "block" ? "none" : "block";
+                });
+
+                const listItems = locationDropdown.querySelectorAll("li");
+                listItems.forEach(item => {
+                    item.addEventListener("click", function () {
+                    const ko = item.getAttribute("data-ko");
+                    const en = item.getAttribute("data-en");
+                    searchName.textContent = ko;
+                    searchBottom.textContent = en;
+                    locationDropdown.style.display = 'none';
+                    });
+                });
+
+                const guestSection = document.getElementById("guest-section");
+                const guestDropdown = document.getElementById("guest-dropdown");
+
+                guestSection.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    guestDropdown.style.display =
+                    guestDropdown.style.display === "block" ? "none" : "block";
+                });
+
+                document.addEventListener("click", function (e) {
+                    const isClickInsideGuest = guestSection.contains(e.target) || guestDropdown.contains(e.target);
+                    if (!isClickInsideGuest) {
+                    guestDropdown.style.display = "none";
+                    }
+                });
+
+                document.querySelectorAll(".increase").forEach(button => {
+                    button.addEventListener("click", function () {
+                    const countEl = this.parentElement.querySelector(".count");
+                    let count = parseInt(countEl.textContent);
+                    countEl.textContent = count + 1;
+                    });
+                });
+
+                document.querySelectorAll(".decrease").forEach(button => {
+                    button.addEventListener("click", function () {
+                    const countEl = this.parentElement.querySelector(".count");
+                    let count = parseInt(countEl.textContent);
+                    if (count > 0) countEl.textContent = count - 1;
+                    });
+                });
+
+                document.getElementById("guest-confirm").addEventListener("click", function () {
+                    const adult = document.getElementById("adult-count").textContent;
+                    const searchBottom = document.querySelector("#count-bottom");
+                    searchBottom.innerHTML = `인원수 <span style="color: #404040;"><b>${adult}</b></span>`;
+                    guestDropdown.style.display = "none";
+                });
+                });
             
             // 슬라이더 구현
             $('.price-slider').ionRangeSlider({
