@@ -8,13 +8,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Document</title>
     <style>
+        *{
+            box-sizing: border-box;
+        }
         #mypage-profile{
             width: 350px;
             height: 350px;
             display: block;
             margin: auto;
-            margin-top: 100px;
-            
+            margin-top: 50px;
             text-align: center;
         }
         #mypage-modify-btn{
@@ -50,9 +52,12 @@
             border: 2px solid #D4D4D4;
             border-radius: 8px;
         }
+        .mypage-input{
+            padding: 10px;
+        }
         #mypage-pw-btn{
             flex: none;
-            margin-right: 30px;
+            margin-right: 80px;
             background-color: white;
             padding: 7px 15px;
             border: 2px solid #FFDA32;
@@ -81,25 +86,112 @@
         .room-info-card{
             width: 800px;
             margin: auto;
-            margin-top: 150px;
+            margin-top: 13px;
             display: flex;
             border: 2px solid #d4d4d4;
-            border-radius: 8px;
+            border-radius: 15px;
             padding: 30px;
         }
         .room-pic{
-            width: 170px;
+            width: 160px;
+            height: 160px;
             border-radius: 30px;
         }
         .room-info-space{
             margin-left: 22px;
+            width: 600px;
         }
+        
         .period{
             margin-top: 10px;
             font-size: 16px;
             color: #666666;
         }
+        .room-name{
+            padding-top: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #404040;
+        }
+        .checkinout, .room-info{
+            padding-top: 6px;
+            font-size: 16px;
+            color: #666666;
+        }
+        .room-info{
+            width: 100px;
+        }
+        .price{
+            width: 100px;
+            font-size: 20px;
+            margin-left: 350px;
+            color: #404040;
+        }
+        .info-and-price{
+            display: flex;
+        }
 
+        .reserve-data{
+            width: 800px;
+            margin-top: 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .reserve-data-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mypage-subtitle{
+            margin-left: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #404040;
+        }
+        .mypage-plus-view{
+            margin-right: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #666666;
+        }
+
+        #heart-ghs{
+            margin-top: 13px;
+            display: flex;
+            width: 850px;
+            justify-content: space-evenly;
+        }
+        .heart-gh{
+            width: 30%;
+        }
+        .gh-img{
+            width: 100%;
+            border-radius: 30px;
+        }
+        .gh-name{
+            margin-top: 10px;
+            color: #404040;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .gh-name, .gh-location{
+            padding-left: 10px;
+        }
+
+        .gh-location{
+             color: #404040;
+             font-size: 16px;
+             display: flex;
+             align-items: center;
+        }
+        svg{
+            margin-right: 8px;
+        }
+
+        
+
+        
     </style>
     <script type="text/javascript">   
         $(document).ready( function() { 
@@ -114,32 +206,101 @@
     <img id="mypage-profile" src="./assets/icons/default_profile.png" alt="user-profile">
     <button id="mypage-modify-btn">회원정보 수정</button>
     <div class="modify-info">
-        <div class="mypage-field">회원 이름<input type="text" placeholder="  홍길동" class="mypage-input"></div>
-        <div class="mypage-field">아이디<input type="text" value="  gildong" disabled="disabled" class="mypage-input"></div>
+        <div class="mypage-field">회원 이름<input type="text" placeholder="홍길동" class="mypage-input"></div>
+        <div class="mypage-field">아이디<input type="text" value="gildong" disabled="disabled" class="mypage-input"></div>
         <div class="mypage-field">비밀번호 <button id="mypage-pw-btn" class="mypage-input">비밀번호 변경</button></div>
-        <div class="mypage-field">연락처<input type="text" placeholder="  010-1234-5678" class="mypage-input"></div>
-        <div class="mypage-field">생년월일<input type="text" placeholder="  2000-12-14" class="mypage-input"></div>
+        <div class="mypage-field">연락처<input type="text" placeholder="010-1234-5678" class="mypage-input"></div>
+        <div class="mypage-field">생년월일<input type="text" placeholder="2000-12-14" class="mypage-input"></div>
         <div class="mypage-field">성별<div id="mypage-gender"><input type="radio" id="gender" name="gender" class="mypage-gender"><label for="gender">여성</label><input type="radio" id="gender" name="gender" class="mypage-gender"><label for="gender">남성</label></div></div>
     </div>
     <div id="mypage-logout"><ins>로그아웃</ins></div>
 
-    <div class="room-info-card">
-        <div class="room-space">
-            <img src="assets/images/mypage_1.png" alt="room-pic" class="room-pic">
+    <div class="reserve-data-section">
+        <div class="reserve-data">
+            <div class="mypage-subtitle">최근 예약 내역</div>
+            <div class="mypage-plus-view">예약 내역 전체 조회 
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.15694 7.71065L1.49994 13.3676L0.0859375 11.9536L5.03594 7.00365L0.0859375 2.05365L1.49994 0.639648L7.15694 6.29665C7.34441 6.48418 7.44972 6.73848 7.44972 7.00365C7.44972 7.26881 7.34441 7.52312 7.15694 7.71065Z" fill="#666666"/>
+</svg>
+
+            </div>
         </div>
-        <div class="room-info-space">
-            <div class="period">2025-07-25</div>
-            <div class="room-name">AA 게스트하우스 202호 더블룸</div>
-            <div class="checkinout">체크인 15:00 ~ 체크아웃 11:00</div>
-            <div class="roon-info">여성 2인실</div>
-            <div class="price">65,000원</div>
+        <div class="room-info-card">
+            <div class="room-space">
+                <img src="assets/images/mypage_1.png" alt="room-pic" class="room-pic">
+            </div>
+            <div class="room-info-space">
+                <div class="period">2025-07-25 ~ 2025-07-26</div>
+                <div class="room-name">AA 게스트하우스 202호 더블룸</div>
+                <div class="checkinout">체크인 15:00 ~ 체크아웃 11:00</div>
+                <div class="info-and-price"><div class="room-info">여성 2인실</div>
+                <div class="price"><b>65,000</b>원</div>
+            </div>
+        </div>   
+    </div>
+</div>
+
+
+    <div class="reserve-data-section">
+        <div class="reserve-data">
+            <div class="mypage-subtitle">관심 내역</div>
+            <div class="mypage-plus-view">관심 내역 전체 조회 
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.15694 7.71065L1.49994 13.3676L0.0859375 11.9536L5.03594 7.00365L0.0859375 2.05365L1.49994 0.639648L7.15694 6.29665C7.34441 6.48418 7.44972 6.73848 7.44972 7.00365C7.44972 7.26881 7.34441 7.52312 7.15694 7.71065Z" fill="#666666"/>
+</svg>
+
+            </div>
+        </div>
+
+        <div id="heart-ghs">
+            <div class="heart-gh">
+                <div class="gh-img-section">
+                    <img src="assets/images/mypage_2.png" alt="gh1" class="gh-img">
+                </div>
+                <div class="gh-name">
+                    BB 게스트 하우스
+                </div>
+                <div class="gh-location">
+                    <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.28572 0C4.61925 0.00196598 3.0216 0.66484 1.84322 1.84321C0.664847 3.02159 0.00197267 4.61924 6.68736e-06 6.28571C-0.00198925 7.64756 0.442853 8.97245 1.26629 10.0571C1.26629 10.0571 1.43772 10.2829 1.46572 10.3154L6.28572 16L11.108 10.3126C11.1331 10.2823 11.3052 10.0571 11.3052 10.0571L11.3057 10.0554C12.1288 8.97121 12.5734 7.64693 12.5714 6.28571C12.5695 4.61924 11.9066 3.02159 10.7282 1.84321C9.54985 0.66484 7.95219 0.00196598 6.28572 0ZM6.28572 8.57143C5.83365 8.57143 5.39173 8.43737 5.01585 8.18622C4.63996 7.93506 4.347 7.57808 4.174 7.16042C4.001 6.74276 3.95573 6.28318 4.04393 5.83979C4.13212 5.39641 4.34981 4.98913 4.66948 4.66947C4.98914 4.34981 5.39642 4.13211 5.8398 4.04392C6.28319 3.95572 6.74277 4.00099 7.16043 4.17399C7.57809 4.34699 7.93507 4.63996 8.18622 5.01584C8.43738 5.39172 8.57144 5.83364 8.57144 6.28571C8.57068 6.89169 8.32962 7.47263 7.90113 7.90112C7.47264 8.32961 6.8917 8.57067 6.28572 8.57143Z" fill="#767676"/>
+                    </svg>
+                    <div class="location-name">속초시</div>
+                </div>
+            </div>
+            
+            <div class="heart-gh">
+                <div class="gh-img-section">
+                    <img src="assets/images/mypage_3.png" alt="gh2" class="gh-img">
+                </div>
+                <div class="gh-name">
+                    BB 게스트 하우스
+                </div>
+                <div class="gh-location">
+                    <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.28572 0C4.61925 0.00196598 3.0216 0.66484 1.84322 1.84321C0.664847 3.02159 0.00197267 4.61924 6.68736e-06 6.28571C-0.00198925 7.64756 0.442853 8.97245 1.26629 10.0571C1.26629 10.0571 1.43772 10.2829 1.46572 10.3154L6.28572 16L11.108 10.3126C11.1331 10.2823 11.3052 10.0571 11.3052 10.0571L11.3057 10.0554C12.1288 8.97121 12.5734 7.64693 12.5714 6.28571C12.5695 4.61924 11.9066 3.02159 10.7282 1.84321C9.54985 0.66484 7.95219 0.00196598 6.28572 0ZM6.28572 8.57143C5.83365 8.57143 5.39173 8.43737 5.01585 8.18622C4.63996 7.93506 4.347 7.57808 4.174 7.16042C4.001 6.74276 3.95573 6.28318 4.04393 5.83979C4.13212 5.39641 4.34981 4.98913 4.66948 4.66947C4.98914 4.34981 5.39642 4.13211 5.8398 4.04392C6.28319 3.95572 6.74277 4.00099 7.16043 4.17399C7.57809 4.34699 7.93507 4.63996 8.18622 5.01584C8.43738 5.39172 8.57144 5.83364 8.57144 6.28571C8.57068 6.89169 8.32962 7.47263 7.90113 7.90112C7.47264 8.32961 6.8917 8.57067 6.28572 8.57143Z" fill="#767676"/>
+                    </svg>
+                    <div class="location-name">속초시</div>
+                </div>
+            </div>
+            <div class="heart-gh">
+                <div class="gh-img-section">
+                    <img src="assets/images/mypage_4.png" alt="gh3" class="gh-img">
+                </div>
+                <div class="gh-name">
+                    BB 게스트 하우스
+                </div>
+                <div class="gh-location">
+                    <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.28572 0C4.61925 0.00196598 3.0216 0.66484 1.84322 1.84321C0.664847 3.02159 0.00197267 4.61924 6.68736e-06 6.28571C-0.00198925 7.64756 0.442853 8.97245 1.26629 10.0571C1.26629 10.0571 1.43772 10.2829 1.46572 10.3154L6.28572 16L11.108 10.3126C11.1331 10.2823 11.3052 10.0571 11.3052 10.0571L11.3057 10.0554C12.1288 8.97121 12.5734 7.64693 12.5714 6.28571C12.5695 4.61924 11.9066 3.02159 10.7282 1.84321C9.54985 0.66484 7.95219 0.00196598 6.28572 0ZM6.28572 8.57143C5.83365 8.57143 5.39173 8.43737 5.01585 8.18622C4.63996 7.93506 4.347 7.57808 4.174 7.16042C4.001 6.74276 3.95573 6.28318 4.04393 5.83979C4.13212 5.39641 4.34981 4.98913 4.66948 4.66947C4.98914 4.34981 5.39642 4.13211 5.8398 4.04392C6.28319 3.95572 6.74277 4.00099 7.16043 4.17399C7.57809 4.34699 7.93507 4.63996 8.18622 5.01584C8.43738 5.39172 8.57144 5.83364 8.57144 6.28571C8.57068 6.89169 8.32962 7.47263 7.90113 7.90112C7.47264 8.32961 6.8917 8.57067 6.28572 8.57143Z" fill="#767676"/>
+                    </svg>
+                    <div class="location-name">속초시</div>
+                </div>
+            </div>
         </div>
     </div>
 
 
-
-
-    <br><br>
+    <br><br><br><br><br><br><br><br>
     <div id="footer-mypage"></div>
 </body>
 </html>
