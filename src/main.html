@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <!-- Jalnan2 CDN -->
+    <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.1/YJ-Jalnan2.css" rel="stylesheet" type="text/css">
+
+    <style>
+      @font-face {
+        font-family: 'Jalnan2';
+        src: url('assets/fonts/Jalnan2TTF.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      .s-tag{
+        font-family: 'Jalnan2';
+        font-size: 16px;
+        color: #08918d;
+        position: relative;
+        margin-left: 295px;
+        margin-top: 100px;
+        margin-bottom: -2px;
+
+      }
+      .m-tag{
+        font-family: 'Jalnan2';
+        font-size: 38px;
+        color: #404040;
+        position: relative;
+        margin-left: 290px;
+  
+
+      }
+
+      .l-tag{ 
+        font-family: 'Jalnan2';
+        font-size: 16px;
+        color: #B3B3B3;
+        position: relative;
+        margin-left: 290px;
+
+      }
+
+      .mt-2{
+        text-align: left;
+        font-family: 'Mulish';
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      
+
+      .main-pic {
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+        
+      }
+      .main-pic img {
+      width: 100%;
+      position: relative;
+      top: -160px;
+      /* height: 500px;
+      display: block; */
+      }   
+
+      .slider .slick-slide {
+        padding: 0 12px;
+      }
+
+      .slider {
+        margin: 0 -12px; /* slick이 padding까지 포함해서 너비 계산하는 것 방지 */
+      }
+
+
+      .rounded{
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
+
+
+      }
+
+
+      .slider {
+        position: relative;
+        padding: 0 40px; /* 좌우 공간 확보 */
+        overflow: visible; /* ← 이게 중요 */
+
+      }
+
+      .slider img {
+        width: 100%;
+        /* height: 200px; */
+        object-fit: cover;
+        border-radius: 20px !important;
+      } 
+
+      .slick-prev {
+  visibility: hidden;
+}
+
+.slick-prev, .slick-next {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 기존 텍스트 화살표 제거 */
+.slick-prev:before,
+.slick-next:before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+}
+
+/* 왼쪽 화살표 아이콘 */
+.slick-prev:before {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+}
+
+/* 오른쪽 화살표 아이콘 */
+.slick-next:before {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
+}
+    .banner-row {
+        display: flex;
+        justify-content: center; 
+        gap: 20px; 
+        margin: 40px auto;
+        max-width: 1100px; 
+    }
+    .banner {
+      flex: 1 1 0;
+      aspect-ratio: 3 / 1; /* 가로:세로 비율 맞추기 */
+      overflow: hidden;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .why-choose {
+      width: 100%;
+      background: #eaf6fb;
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .why-choose img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* .card-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    } */
+     .card-box {
+      position: relative;
+      width: 50px;
+      overflow: hidden;
+      border-radius: 16px;
+      transition: border 0.3s ease;
+    }
+
+    .card-box:hover {
+      border: 4px solid #2c3e50; /* 강조 색상 (진한 남색 계열) */
+    }
+
+
+    .card-box img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .card-text {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 8px 20px;  /* 좌우 여백 줄이기 */
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: 'Mulish', sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      line-height: 1.4;
+      min-width: 80%;  
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+
+    </style> 
+
+    <title>Search Page</title>
+
+  <script type="text/javascript">   
+    $(document).ready(function() { 
+
+      $("#header-main").load("./header.html");
+      $("#footer-main").load("./footer.html");
+      $("#search-bar-main").load("./search-bar.html");
+
+
+      $("#header-main").load("./header.html", function() {
+        $("#header").css({
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "width": "100%",
+          "z-index": "1000",
+          "background": "transparent",
+          "box-shadow": "none"
+        });
+  
+        $("#logo").attr("src", "./assets/icons/logo_white.png");
+
+$('.slider-korea').on('afterChange', function(event, slick, currentSlide){
+  if (currentSlide === 0) {
+    $('.slick-prev').css('visibility', 'hidden');
+  } else {
+    $('.slick-prev').css('visibility', 'visible');
+  }
+});
+
+
+  $('.slider-korea').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+  $('.slider-global').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+  $('.slider-event').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+  });
+
+    }); 
+  </script>
+</head>
+<body>
+  <div id="header-main"></div>
+  <div class="main-pic"><img src="./assets/images/main_main.png" alt="배경이미지"></div>
+  <div id="search-bar-main"  style="position: absolute;  left: 50%; transform: translateX(-50%); z-index: 10; margin-top: -60px; opacity: 1; "></div>
+
+  <div>
+    <p class="s-tag">HOT</p>
+  </div>
+  <div>
+    <h2 class="m-tag">국내 인기 여행지</h2>
+  </div>
+
+<div class="slider slider-korea container my-4">
+  <div>
+    <img src="./assets/images/main_ko_seoul.png" alt="서울" class="img-fluid rounded ">
+    <p class="mt-2">서울</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_ko_busan.jpg" alt="부산" class="img-fluid rounded">
+    <p class="mt-2">부산</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_ko_jeju.png" alt="제주" class="img-fluid rounded">
+    <p class="mt-2">제주</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_ko_gangneung.png" alt="강릉" class="img-fluid rounded">
+    <p class="mt-2">강릉</p>
+  </div>
+    <div>
+    <img src="./assets/images/main_ko_suncheon.jpg" alt="순천" class="img-fluid rounded">
+    <p class="mt-2">여수</p>
+  </div>
+    <div>
+    <img src="./assets/images/main_ko_yeosu.jpg" alt="여수" class="img-fluid rounded">
+    <p class="mt-2">순천</p>
+  </div>
+
+</div>
+
+
+
+    <div>
+    <p class="s-tag">HOT</p>
+  </div>
+  <div>
+    <h2 class="m-tag">해외 인기 여행지</h2>
+  </div>
+
+<div class="slider slider-global container my-4">
+  <div>
+    <img src="./assets/images/main_glo_tokyo.png" alt="도쿄" class="img-fluid rounded">
+    <p class="mt-2">도쿄</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_glo_osaka.png" alt="오사카" class="img-fluid rounded">
+    <p class="mt-2">오사카</p>
+  </div>
+  <div>
+    <img src=".//assets/images/main_glo_singapore.png" alt="싱가포르" class="img-fluid rounded">
+    <p class="mt-2">싱가포르</p>
+  </div>
+  <div>
+    <img src="./assets/images/main_glo_bankok.png" alt="방콕" class="img-fluid rounded">
+    <p class="mt-2">방콕</p>
+  </div>
+    <div>
+    <img src="./assets/images/main_glo_hongkong.jpg" alt="홍콩" class="img-fluid rounded">
+    <p class="mt-2">홍콩</p>
+  </div>
+    <div>
+    <img src="./assets/images/main_glo_laos.jpg" alt="라오스" class="img-fluid rounded">
+    <p class="mt-2">라오스</p>
+  </div>
+
+</div>
+
+  <!-- 배너 -->
+   <div class="banner-row">
+    <div class="banner">
+        <img src="./assets/images/main_ban_1.png">
+    </div>
+    <div class="banner">
+        <img src="./assets/images/main_ban_2.png">
+    </div>
+   </div>
+  <!-- Why Choose Us -->
+  <div>
+    <div class="why-choose">
+      <img src="./assets/images/main_section.png">
+    </div>
+  </div>
+
+
+  <div>
+    <p class="s-tag">EVENT</p>
+  </div>
+  <div>
+    <h2 class="m-tag">이번 주 프로모션</h2>
+  </div>
+  <div>
+    <h3 class="l-tag">나를 위한 근사한 휴가, 할인 혜택 더하기</h3>
+  </div>
+
+<div class="slider slider-event container my-5">
+  <div class="card-box">
+    <img src="./assets/images/main_prom_1.png" alt="이벤트1">
+    <div class="card-text">열기구체험 50%할인중</div>
+  </div>
+  <div class="card-box">
+    <img src="./assets/images/main_prom_2.png" alt="이벤트2">
+    <div class="card-text">아시아나 항공사 특가</div>
+  </div>
+  <div class="card-box">
+    <img src="./assets/images/main_prom_3.png" alt="이벤트3">
+    <div class="card-text">여름맞이 평창&제주 할인</div>
+  </div>
+  <div class="card-box">
+    <img src="./assets/images/main_prom_4.png" alt="이벤트4">
+    <div class="card-text">티웨이항공 티켓 특가</div>
+  </div>
+    <div class="card-box">
+    <img src="./assets/images/main_prom_4.png" alt="이벤트4">
+    <div class="card-text">티웨이항공 티켓 특가</div>
+  </div>
+
+</div>
+
+
+  <div id="footer-main"></div>
+
+
+
+</body>
+</html>
