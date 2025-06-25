@@ -296,7 +296,7 @@
                     let gehaImg = $(this).closest(".geha-image").find("img").attr("src");
                     let gehaName = $(this).closest(".geha-box").find(".geha-title").text();
                     let gehaLoc = $(this).closest(".geha-box").find(".geha-region-text").text();
-                    let gehaInfo = {"id": gehaId, "img": gehaImg, "name":gehaName, "loc":gehaLoc};
+                    let gehaInfo = {"id": gehaId, "img": gehaImg, "name":gehaName, "loc":gehaLoc, "timestamp":Date.now()};
                     $(this).html(filledHeart);
                     localStorage.setItem(`wish_${gehaId}`, JSON.stringify(gehaInfo));
                 } else { // 찜 해제
