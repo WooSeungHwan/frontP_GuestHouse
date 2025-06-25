@@ -94,6 +94,7 @@
             margin-left: 3px;
         }
         #geha-title-loc > span {
+            font-family: 'Jalnan2';
             font-size: 20px;
             color: #08918D;
             font-weight: bold;
@@ -151,6 +152,9 @@
             justify-content: right;
             align-items: center;
         }
+        #geha-review-all:hover {
+            cursor: pointer;
+        }
         #geha-review-prev {
             width: 1000px;
             border: 2px solid #F2F2F7;
@@ -200,16 +204,13 @@
         .room-card {
             width: 1000px;
             border: 2px solid #D4D4D4;
-            border-radius: 10px;
+            border-radius: 20px;
             padding: 30px 20px;
             margin: 10px 0;
         }
-        .room-img {
-            text-align: center;
-        }
         .room-img img {
             width: 200px; height: 200px;
-            border-radius: 10px;
+            border-radius: 30px;
         }
         .room-info {
             display: flex;
@@ -271,6 +272,7 @@
             padding-left: 20px;
         }
         .detail-input {
+            width: 200px;
             height: 40px;
             border: 2px solid #D4D4D4;
             border-radius: 8px;
@@ -305,6 +307,9 @@
             border-radius: 5px;
             padding: 5px;
             margin: 2px 5px;
+        }
+        #geha-loc-section {
+            margin-bottom: 150px;
         }
         #geha-loc-section div {
             display: flex;
@@ -563,10 +568,10 @@
                     <hr width="95%" style="color:#D4D4D4; border-width: 2px;">
                     <div class="col-6 room-rsv-info">
                         <p class="rsv-info-title">예약 정보</p>
-                        <div class="detail-field">예약자 이름<input type="text" placeholder="홍길동" class="detail-input"></div>
-                        <div class="detail-field">휴대폰 번호<input type="text" placeholder="010-1234-5678" class="detail-input"></div>
-                        <div class="detail-field">입실 일자<input type="text" placeholder="2025-07-24" disabled="disabled" class="detail-input"></div>
-                        <div class="detail-field">퇴실 일자<input type="text" placeholder="2025-07-25" disabled="disabled" class="detail-input"></div>
+                        <div class="detail-field">예약자 이름<input type="text" class="detail-input" value="홍길동"></div>
+                        <div class="detail-field">휴대폰 번호<input type="text" class="detail-input" value="010-1234-5678"></div>
+                        <div class="detail-field">입실 일자<input type="date" class="detail-input" value="2025-07-26" ></div>
+                        <div class="detail-field">퇴실 일자<input type="date" class="detail-input" value="2025-07-27" ></div>
                     </div>
                     <div class="col-6 room-rsv-credit">
                         <div><button class="payBtn">결제하기</button></div>
@@ -705,7 +710,7 @@
                 </div>
             </div>
         </div>
-        <div id="geha-loc-section" class="col-lg-12 mb-5">
+        <div id="geha-loc-section" class="col-lg-12">
             <p id="geha-info-title">주소</p>
             <p id="geha-info-sub"><span>도로명</span>강원 강릉시 창해로362번길 16</p>
             <p id="geha-info-sub"><span>지번</span>강원 강릉시 강문동 197</p>
