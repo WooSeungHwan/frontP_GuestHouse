@@ -357,7 +357,7 @@ flatpickr("#date-input", {
         const end = selectedDates[1];
         const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
         nameEl.style.display = "none";
-        display.innerHTML = `<span style="color: #404040; font-size="5px">${start.toLocaleDateString()} - ${end.toLocaleDateString()} <b>(${nights}박)</b></span>`;
+        display.innerHTML = `<span style="color: #404040; font-size="5px">${start.toLocaleDateString()} - ${end.toLocaleDateString()} <br><b>(${nights}박)</b></span>`;
         }
     }
 });
