@@ -24,7 +24,7 @@
 
       .s-tag{
         font-family: 'Jalnan2';
-        font-size: 16px;
+        font-size: 18px;
         color: #08918d;
         position: relative;
         margin-left: 295px;
@@ -57,6 +57,7 @@
         font-size: 20px;
         font-weight: 700;
         color: #404040;
+        margin-left: 5px;
       }
 
       
@@ -93,6 +94,9 @@
 
       }
 
+      .my-4> img{
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+      }
 
       .slider {
         position: relative;
@@ -106,11 +110,16 @@
         /* height: 200px; */
         object-fit: cover;
         border-radius: 20px !important;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
       } 
+    .slider img:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
 
       .slick-prev {
-  visibility: hidden;
-}
+      visibility: hidden;
+    }
 
 .slick-prev, .slick-next {
   width: 30px;
@@ -126,7 +135,7 @@
 /* 위치 조절 추가 */
 .slick-prev,
 .slick-next {
-  top: 45% !important;
+  top: 40% !important;
   transform: translateY(-50%);
 }
 
@@ -174,6 +183,11 @@
         object-fit: cover;
         display: block;
     }
+    .banner img:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
 
     .why-choose {
       width: 100%;
@@ -188,7 +202,10 @@
         height: auto;
         display: block;
     }
-
+    .why-choose img:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
     /* .card-box {
       position: relative;
       overflow: hidden;
@@ -213,6 +230,11 @@
       border-radius: 16px;
     }
 
+    .card-box img:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
     .card-text {
       position: absolute;
       bottom: 16px;
@@ -233,8 +255,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      opacity: 0.9;
-
+      opacity: 0.7;
+    }
+    .card-text:hover {
+      cursor: pointer;
+      opacity: 0.7;
     }
 
 
@@ -263,13 +288,43 @@
   
         $("#logo").attr("src", "./assets/icons/logo_white.png");
 
+// $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
+//   if (currentSlide === 0) {
+//     $('.slick-prev').css('visibility', 'hidden');
+//   } else {
+//     $('.slick-prev').css('visibility', 'visible');
+//   }
+// });
+// 국내 인기 여행지 슬라이더
 $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
   if (currentSlide === 0) {
-    $('.slick-prev').css('visibility', 'hidden');
+    $('.slider-korea .slick-prev').css('visibility', 'hidden');
   } else {
-    $('.slick-prev').css('visibility', 'visible');
+    $('.slider-korea .slick-prev').css('visibility', 'visible');
   }
 });
+
+// 해외 인기 여행지 슬라이더
+$('.slider-global').on('afterChange', function(event, slick, currentSlide){
+  if (currentSlide === 0) {
+    $('.slider-global .slick-prev').css('visibility', 'hidden');
+  } else {
+    $('.slider-global .slick-prev').css('visibility', 'visible');
+  }
+});
+
+// 이벤트 슬라이더
+$('.slider-event').on('afterChange', function(event, slick, currentSlide){
+  if (currentSlide === 0) {
+    $('.slider-event .slick-prev').css('visibility', 'hidden');
+  } else {
+    $('.slider-event .slick-prev').css('visibility', 'visible');
+  }
+});
+
+$('.slider-korea .slick-prev').css('visibility', 'hidden');
+$('.slider-global .slick-prev').css('visibility', 'hidden');
+$('.slider-event .slick-prev').css('visibility', 'hidden');
 
 
   $('.slider-korea').slick({
@@ -359,7 +414,7 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
   $(images[1]).fadeOut(300, function () {
     $(this).attr('src', banners[currentIndex][1]).fadeIn(300);
   });
-}, 3000);
+}, 5000);
 
     }); 
       
@@ -372,7 +427,7 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
   <div id="search-bar-main"  style="position: absolute;  left: 50%; transform: translateX(-50%); z-index: 10; margin-top: -60px; opacity: 1; "></div>
 
   <div>
-    <p class="s-tag">HOT</p>
+    <p class="s-tag" style="margin-top: 150px;">HOT</p>
   </div>
   <div>
     <h2 class="m-tag">국내 인기 여행지</h2>
@@ -396,11 +451,11 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
     <p class="mt-2">강릉</p>
   </div>
     <div>
-    <img src="./assets/images/main_ko_suncheon.jpg" alt="순천" class="img-fluid rounded">
+    <img src="./assets/images/main_ko_suncheon.png" alt="순천" class="img-fluid rounded">
     <p class="mt-2">여수</p>
   </div>
     <div>
-    <img src="./assets/images/main_ko_yeosu.jpg" alt="여수" class="img-fluid rounded">
+    <img src="./assets/images/main_ko_yeosu.png" alt="여수" class="img-fluid rounded">
     <p class="mt-2">순천</p>
   </div>
 
@@ -433,18 +488,18 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
     <p class="mt-2">방콕</p>
   </div>
     <div>
-    <img src="./assets/images/main_glo_hongkong.jpg" alt="홍콩" class="img-fluid rounded">
+    <img src="./assets/images/main_glo_hongkong.png" alt="홍콩" class="img-fluid rounded">
     <p class="mt-2">홍콩</p>
   </div>
     <div>
-    <img src="./assets/images/main_glo_laos.jpg" alt="라오스" class="img-fluid rounded">
+    <img src="./assets/images/main_glo_laos.png" alt="라오스" class="img-fluid rounded">
     <p class="mt-2">라오스</p>
   </div>
 
 </div>
 
   <!-- 배너 -->
-   <div class="banner-row" id="bannerContainer">
+   <div class="banner-row" id="bannerContainer" style="margin-top: 100px;">
     <div class="banner">
         <img src="./assets/images/main_ban_1.png">
     </div>
@@ -454,7 +509,7 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
    </div>
   <!-- Why Choose Us -->
   <div>
-    <div class="why-choose">
+    <div class="why-choose" style="margin-top: 150px;">
       <img src="./assets/images/main_section.png">
     </div>
   </div>
@@ -473,11 +528,11 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
 <div class="slider slider-event container my-5">
   <div class="card-box">
     <img src="./assets/images/main_prom_1.png" alt="이벤트1">
-    <div class="card-text">열기구체험 50%할인중</div>
+    <div class="card-text">강원 청정 여름맞이 특가</div>
   </div>
   <div class="card-box">
     <img src="./assets/images/main_prom_2.png" alt="이벤트2">
-    <div class="card-text">아시아나 항공사 특가</div>
+    <div class="card-text">호캉스 선착순 특가</div>
   </div>
   <div class="card-box">
     <img src="./assets/images/main_prom_3.png" alt="이벤트3">
@@ -485,17 +540,17 @@ $('.slider-korea').on('afterChange', function(event, slick, currentSlide){
   </div>
   <div class="card-box">
     <img src="./assets/images/main_prom_4.png" alt="이벤트4">
-    <div class="card-text">티웨이항공 티켓 특가</div>
+    <div class="card-text">꿈 같은 하루가 펼쳐지는 호텔</div>
   </div>
     <div class="card-box">
     <img src="./assets/images/main_prom_5.png" alt="이벤트4">
-    <div class="card-text">호캉스 선착순 특가</div>
+    <div class="card-text">프리미엄 호캉스 호텔 특가</div>
   </div>
 
 </div>
 
 
-  <div id="footer-main"></div>
+  <div id="footer-main" style="margin-top: 200px;"></div>
 
 
 
