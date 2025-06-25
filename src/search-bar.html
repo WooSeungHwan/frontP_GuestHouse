@@ -337,24 +337,26 @@
             <!-- <input id="date-input" placeholder="Pick a date" readonly> -->
         </div>
         <div id="search-button"> 
+            <a href="search.html">
             <button id="search-btn">검색</button> </div>
+            </a>
     </div>
 <script>
 flatpickr("#date-input", {
-  mode: "range",
-  dateFormat: "Y-m-d",
-  numberOfMonths: 2,
-  onChange: function(selectedDates, dateStr) {
-    const nameEl = document.querySelector("#date-bottom .search-name");
-    const display = document.querySelector("#date-bottom .search-bottom");
-    if (selectedDates.length === 2) {
-      const start = selectedDates[0];
-      const end = selectedDates[1];
-      const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
-      nameEl.style.display = "none";
-      display.innerHTML = `<span style="color: #404040; font-size="5px">${start.toLocaleDateString()} - ${end.toLocaleDateString()} <b>(${nights}박)</b></span>`;
+    mode: "range",
+    dateFormat: "Y-m-d",
+    numberOfMonths: 2,
+    onChange: function(selectedDates, dateStr) {
+        const nameEl = document.querySelector("#date-bottom .search-name");
+        const display = document.querySelector("#date-bottom .search-bottom");
+        if (selectedDates.length === 2) {
+        const start = selectedDates[0];
+        const end = selectedDates[1];
+        const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
+        nameEl.style.display = "none";
+        display.innerHTML = `<span style="color: #404040; font-size="5px">${start.toLocaleDateString()} - ${end.toLocaleDateString()} <b>(${nights}박)</b></span>`;
+        }
     }
-  }
 });
 
 // 클릭 시 input을 trigger하여 캘린더 열기
@@ -373,10 +375,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.stopPropagation();
         locationDropdown.style.display =
         locationDropdown.style.display === "block" ? "none" : "block";
-    });
-
-    document.addEventListener("click", function () {
-        locationDropdown.style.display = "none";
     });
 
     const listItems = locationDropdown.querySelectorAll("li");
