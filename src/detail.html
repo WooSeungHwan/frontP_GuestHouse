@@ -311,9 +311,11 @@
         #geha-loc-section {
             margin-bottom: 150px;
         }
-        #geha-loc-section div {
+        #map-section {
             display: flex;
             justify-content: center;
+        }
+        #geha-loc-section div {
             margin-bottom: 30px;
         }
         #header-top{
@@ -537,7 +539,7 @@
                             <path d="M14.5 20.8735L9.48539 23.8943C9.26386 24.0353 9.03226 24.0957 8.7906 24.0756C8.54893 24.0554 8.33747 23.9749 8.15622 23.8339C7.97497 23.6929 7.834 23.5169 7.7333 23.3059C7.63261 23.0948 7.61247 22.858 7.67289 22.5954L9.00205 16.886L4.56143 13.0495C4.36004 12.8683 4.23437 12.6617 4.18443 12.4297C4.13448 12.1977 4.14939 11.9713 4.22914 11.7506C4.30889 11.5299 4.42972 11.3486 4.59164 11.2068C4.75355 11.0651 4.97508 10.9744 5.25622 10.935L11.1166 10.4214L13.3823 5.04434C13.483 4.80267 13.6392 4.62142 13.8511 4.50059C14.063 4.37975 14.2792 4.31934 14.5 4.31934C14.7207 4.31934 14.937 4.37975 15.1488 4.50059C15.3607 4.62142 15.517 4.80267 15.6177 5.04434L17.8833 10.4214L23.7437 10.935C24.0257 10.9752 24.2472 11.0659 24.4083 11.2068C24.5694 11.3478 24.6902 11.5291 24.7708 11.7506C24.8514 11.9721 24.8667 12.1989 24.8167 12.4309C24.7668 12.6629 24.6407 12.8691 24.4385 13.0495L19.9979 16.886L21.3271 22.5954C21.3875 22.8572 21.3673 23.094 21.2666 23.3059C21.1659 23.5177 21.025 23.6938 20.8437 23.8339C20.6625 23.9741 20.451 24.0546 20.2093 24.0756C19.9677 24.0965 19.7361 24.0361 19.5146 23.8943L14.5 20.8735Z" fill="#FFDA32"/>
                             </svg>
                         </div>
-                        <div class="review-content">게스트하우스 처음인데 방음도 잘 되고 방도 청결해서 하루 잘 묵고 갑니다.</div>
+                        <div class="review-content">게스트하우스 아니고 그냥 펜션처럼 분위기 너무 좋아요~~~ 친구들이랑 같이 가서 사진 찍기도 굿bbb</div>
                     </div>
                 </div>
             </div>
@@ -719,8 +721,29 @@
             <p id="geha-info-title">주소</p>
             <p id="geha-info-sub"><span>도로명</span>강원 강릉시 창해로362번길 16</p>
             <p id="geha-info-sub"><span>지번</span>강원 강릉시 강문동 197</p>
-            <div>
-                <img alt="" src="assets/images/detail_location_01.png" width="92%">
+            <div id="map-section">
+                <div id="map" style="width:92%;height:450px"></div>
+                <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f4b3341503fa0cda8320b0111aae10b2"></script>
+                <script>
+                    kakao.maps.load(function () {
+                        var container = document.getElementById('map');
+                        var markerPosition  = new kakao.maps.LatLng(37.795561, 128.917333); // 마커 위치
+                        var options = {
+                            center: markerPosition,
+                            level: 3
+                        };
+                        var map = new kakao.maps.Map(container, options); // 지도 생성
+                        var marker = new kakao.maps.Marker({ position: markerPosition }); // 마커 생성
+                        marker.setMap(map); // 마커 지도 위에 표시
+                        // 지도가 완전히 로드된 후 relayout() 호출
+                        setTimeout(() => { 
+                                map.relayout();
+                                map.setCenter(markerPosition);
+                        }, 200); // 200ms 정도 딜레이 주면 좋음
+                    })
+                    
+                </script>
+                <!-- <img alt="" src="assets/images/detail_location_01.png" width="92%"> -->
             </div>
         </div>
     </div>
