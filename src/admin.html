@@ -53,7 +53,7 @@
 
         /*admin-profile*/
         #section-1-1{
-            margin: 20px;
+            margin: 10px;
             padding: 10px;
             display: flex;
             width: 280px;
@@ -146,7 +146,6 @@
         
         .section-2-box{
             background-color: #FCFCFC;
-            width: 390px;
             box-shadow: 0 19px 38px rgba(0,0,0,0.20), 0 5px 6px rgba(0,0,0,0.22);
             padding: 18px;
             border-radius: 10px;
@@ -156,11 +155,11 @@
         #section-2{
             display: flex;
             flex-direction: column;
-            margin: 20px;
+            margin: 10px;
             justify-content: space-between;
         }
         .section-3{
-            margin: 20px;
+            margin: 10px;
             width: 80%;
             background-color: #FCFCFC;
             border-radius: 10px;
@@ -173,7 +172,7 @@
         }
         #section-middle-1{
             gap: 30px;
-            margin: 20px;
+            margin: 10px;
             width: 600px;
             height: 330px;
             background-color: #FCFCFC;
@@ -186,7 +185,7 @@
         }
 
         .section-middle-cards{
-            margin: 20px;
+            margin: 10px;
             width: 30%;
             background-color: #FCFCFC;
             border-radius: 10px;
@@ -303,17 +302,15 @@
             text-indent: -13px !important;
         }
         
-         .section3-1{
-            width: 400px;
-            
+        .section3-1{
+            width: 350px;
+        }
+        .section3-2{
+            width: 270px;
         }
         /* #section-top > div:last-child {
             margin-right: 5 !important;
         }  */
-        #section-2 .section-2-box{
-            width: 580px;
-        }
-
 
 
     </style>
@@ -383,13 +380,17 @@
                 </div>
                 <div id="section-2">
                     <div class="section-2-box" id="section-2-1">SMS Balance : <b>1220건</b></div>
-                    <div class="section-2-box" id="section-2-2">Hosting Expiration Date : <b>2025-12-14</b></div>
-                    <div class="section-2-box" id="section-2-3">Hosting Registration Date : <b>2024-12-14</b></div>
-                    <div class="section-2-box" id="section-2-4">Business Phone Number : <b>02-1234-5678</b></div>
+                    <div class="section-2-box" id="section-2-2">Registration Date: <b>2024-12-14</b></div>
+                    <div class="section-2-box" id="section-2-3">Expiration Date : <b>2025-12-13</b></div>
+                    <div class="section-2-box" id="section-2-4">Business PH : <b>02-1234-5678</b></div>
+                </div>
+                <div class="section-3 section3-2">
+                    <canvas id="bar-vertax-chart" width="250px" height="300px"></canvas>
                 </div>
                 <div class="section-3 section3-1">
                     <canvas id="donut-chart"></canvas>
                 </div>
+                
             </div>
             <div class="section-middle1">
                 <div id="section-middle-1">
@@ -528,7 +529,8 @@
 		const room_data = {
 			label : 'room type',
 			data : [ 350, 1000, 2800, 3560, 860, 100 ],
-			backgroundColor : ['#CC99FF', '#FFDA99', '#F1FF99', '#69F37C', '#99F0FF', '#FF99B4'],
+			backgroundColor : ['rgba(51, 204, 204, 0.4)', 'rgba(153, 153, 255, 0.4)', 'rgba(102, 153, 255, 0.4)', 'rgba(255, 204, 0, 0.4)', 'rgba(255, 153, 102, 0.4)', 'rgba(255, 102, 153, 0.4)'],
+            borderColor: ['rgb(51, 204, 204)', 'rgb(153, 153, 255)', 'rgb(102, 153, 255)', 'rgb(255, 204, 0)', 'rgb(255, 153, 102)', 'rgb(255, 102, 153)'],
 			hoverOffset : 9
 		};
 		const data = {
@@ -576,17 +578,21 @@
 		    const data_2023 = {
                 label: '2023',
                 data: cumulative([100, 99, 110, 100, 112, 116, 120, 119, 99, 84, 99, 100]),
-                backgroundColor: '#FFDA32',
-                borderColor: '#FFDA32',
+                borderColor: '#FFDA32',               // 선 색
+                backgroundColor: 'rgba(255, 218, 50, 0.2)', // 아래 채움 색 (투명도 조절)
                 borderWidth: 2,
+                fill: true,
+                tension: 0.4
             };
 
             const data_2024 = {
                 label: '2024',
                 data: cumulative([60, 20, 30, 70, 80, 70, 80, 120, 100, 99, 101, 120]),
-                backgroundColor: '#95ACF5',
-                borderColor: '#95ACF5',
+                borderColor: 'rgb(51, 204, 204)',                  // 선 색
+                backgroundColor: 'rgba(51, 204, 204, 0.4)', // 영역 색 (투명도 적용)
                 borderWidth: 2,
+                fill: true,
+                tension: 0.4
             };
 
                 let config2 = {
@@ -627,11 +633,12 @@
     </script>
 <script>
 		const ctx3 = document.querySelector("#pie-chart");
-		const age = [ 'twenties', 'thirties', 'forties', 'fifties','sixties'];
+		const age = [ 'twenties', 'thirties', 'forties', 'fifties'];
 		const age_data = {
 			label : 'age',
-			data : [ 3500, 3000, 280, 260, 100 ],
-			backgroundColor : ['#CC99FF', '#FFDA99', '#F1FF99', '#69F37C', '#99F0FF'],
+			data : [ 2100, 2000, 280, 260],
+			backgroundColor : ['rgba(51, 204, 204, 0.4)', 'rgba(153, 153, 255, 0.4)', 'rgba(102, 153, 255, 0.4)', 'rgba(255, 102, 153, 0.4)', 'rgba(255, 153, 102, 0.4)'],
+            borderColor: ['rgb(51, 204, 204)', 'rgb(153, 153, 255)', 'rgb(102, 153, 255)', 'rgb(255, 102, 153)', 'rgb(255, 153, 102)'],
 			hoverOffset : 9
 		};
 		const data3 = {
@@ -682,6 +689,8 @@
   { x: 6, y: 21, r: 13 },
 
   // 🔵 평일 체크인 시간 (x: 1~4 / y: 15~21)
+  { x: 0, y: 17, r: 10 },
+  { x: 0, y: 12, r: 10 },
   { x: 1, y: 17, r: 10 },
   { x: 2, y: 18, r: 11 },
   { x: 3, y: 19, r: 9 },
@@ -751,6 +760,7 @@
           },
           ticks: {
             stepSize: 1,
+            autoSkip: false,
             callback: function(value) {
               return weekdays[value] || '';
             },
@@ -783,16 +793,16 @@
 			label : 'women' ,
 			data : [ 100, 99, 80, 90, 122, 150, 120, 119, 99, 84, 99, 100 ],
 			//backgroundColor : 'rgba(203,206,145, .4)',
-			backgroundColor : 'rgb(165, 221, 155)',
-			borderColor :'rgb(165, 221, 155)',
+			backgroundColor : 'rgba(255, 102, 153, 0.4)',
+			borderColor :'rgb(255, 102, 153)',
 			borderWidth : 1,
 		};
 		const man = {
 			label : 'man',
 			data : [ 80, 90, 200, 120, 90, 190, 130, 145, 100, 99, 101, 120 ],
 			//backgroundColor : 'rgba(203,206,145,.5)',
-			backgroundColor : 'rgb(242, 193, 141)',
-			borderColor : 'rgb(242, 193, 141)',
+			backgroundColor : 'rgba(102, 153, 255, 0.4)',
+			borderColor : 'rgb(102, 153, 255)',
 			borderWidth : 1,
 		};
 
@@ -833,6 +843,74 @@
 	}
 
 	new Chart(ctx5, config5);
+
+const ctx6 = document.getElementById("bar-vertax-chart").getContext("2d");
+
+// 좌우 방향 gradient (가로 막대용)
+
+const gradient = ctx6.createLinearGradient(0, 0, 400, 0);
+gradient.addColorStop(0, 'rgba(153, 153, 255, 0.4)');
+gradient.addColorStop(1, '#A78BFA');
+
+new Chart(ctx6, {
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+      label: 'Quarterly Performance',
+      data: [120, 150, 100, 180],
+      backgroundColor: Array(7).fill(gradient),
+      borderRadius: 10,
+      barThickness: 24
+    }]
+  },
+  options: {
+    indexAxis: 'y', 
+    plugins: {
+      title: {
+        display: true,
+        text: 'Quarterly Performance',
+        font: {
+          size: 18,
+        },
+        padding: {
+          top: 10,
+          bottom: 20
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: context => `$${context.raw * 100}`
+        }
+      },
+      legend: { display: false }
+    },
+    layout: {
+      padding: {
+        top: 10,
+        bottom: 10,
+        left: 20,
+        right: 20
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 50
+        }
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 14
+          }
+        }
+      }
+    }
+  }
+});
+    
 </script>
 </body>
 </html>
