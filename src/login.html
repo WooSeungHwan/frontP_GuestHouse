@@ -180,7 +180,11 @@
 
   <script type="text/javascript">   
       $(document).ready( function() { 
-          $("#header-login").load("./header.html");
+          $("#header-login").load("./header.html", function () {
+            $('#login-btn').html('로그인'); // header 로딩 후 실행
+            $('#button-link').attr("href", "login.html");
+          });
+
           $("#footer-login").load("./footer.html");
 
           // jQuery UI tab 사용
