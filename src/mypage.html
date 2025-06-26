@@ -170,6 +170,13 @@
             width: 850px;
             justify-content: space-evenly;
         }
+        #heart-ghs img {
+            transition: .5s ease-in-out;
+        }
+        #heart-ghs img:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
         .heart-gh{
             width: 30%;
         }
@@ -326,8 +333,8 @@
                 <img src="assets/images/mypage_1.png" alt="room-pic" class="room-pic">
             </div>
             <div class="room-info-space">
-                <div class="period">2025-07-25 ~ 2025-07-26</div>
-                <div class="room-name">AA 게스트하우스 202호 더블룸</div>
+                <div class="period">2025-07-26 ~ 2025-07-27</div>
+                <div class="room-name">필그림 게스트하우스 펜션 201호 더블룸</div>
                 <div class="checkinout">체크인 15:00 ~ 체크아웃 11:00</div>
                 <div class="info-and-price"><div class="room-info">여성 2인실</div>
                 <div class="price"><b>65,000</b>원</div>
@@ -366,7 +373,7 @@
         $("#mypage-logout").click(function () {
             const confirmed = confirm("로그아웃하시겠습니까?");
             if (confirmed) {
-                window.location.href = "main.html"; 
+                window.location.href = "login.html"; 
             }
         });
 
