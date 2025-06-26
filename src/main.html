@@ -126,59 +126,66 @@
       visibility: hidden;
     }
 
-.slick-prev, .slick-next {
-  width: 30px;
-  height: 30px;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-}
-/* 위치 조절 추가 */
-.slick-prev,
-.slick-next {
-  top: 40% !important;
-  transform: translateY(-50%);
-}
+  .slick-prev, .slick-next {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  /* 위치 조절 추가 */
+  .slick-prev,
+  .slick-next {
+    top: 40% !important;
+    transform: translateY(-50%);
+  }
 
-.slick-prev:hover, .slick-next:hover {
-  width: 30px;
-  height: 30px;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-}
+  .slider-event .slick-next {
+    top: 50% !important; /* ← 기본은 40%인데, 숫자를 키워서 아래로 */
+    transform: translateY(-50%);
+  }
 
 
-/* 기존 텍스트 화살표 제거 */
-.slick-prev:before,
-.slick-next:before {
-  content: '';
-  display: block;
-  width: 16px;
-  height: 16px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 1;
-}
 
-/* 왼쪽 화살표 아이콘 */
-.slick-prev:before {
-  background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
-}
+  .slick-prev:hover, .slick-next:hover {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
 
-/* 오른쪽 화살표 아이콘 */
-.slick-next:before {
-  background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
-}
+
+  /* 기존 텍스트 화살표 제거 */
+  .slick-prev:before,
+  .slick-next:before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+  }
+
+  /* 왼쪽 화살표 아이콘 */
+  .slick-prev:before {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+  }
+
+  /* 오른쪽 화살표 아이콘 */
+  .slick-next:before {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
+  }
     .banner-row {
         display: flex;
         justify-content: center; 
@@ -212,23 +219,17 @@
       text-align: center;
       max-width: 1100px;
       margin: 0 auto;
+      border-radius: 20px;
+
     }
 
     .why-choose img {
         width: 100%;
         height: auto;
         display: block;
+        border-radius: 20px;
     }
-    /* .why-choose img:hover {
-      cursor: pointer;
-      opacity: 0.7;
-    } */
-    /* .card-box {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    } */
+
      .card-box {
       position: relative;
       width: 50px;
@@ -236,8 +237,6 @@
       border-radius: 16px;
       transition: border 0.3s ease;
     }
-
-
 
     .card-box img {
       width: 100%;
@@ -282,6 +281,33 @@
     .slider-korea p, .slider-global p {
       margin-left: 15px;
     }
+
+    .ban-wrapper{
+      background-color: white;
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: -110px;
+    }
+
+    .ban_mid img{
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+
+    #bannerContainer img{
+      border-radius: 20px;
+    }
+    .ban_mid img:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+
 
     </style> 
 
@@ -589,6 +615,16 @@ $('.slider-event .slick-prev').css('visibility', 'hidden');
         <img src="./assets/images/main_ban_6.jpeg">
     </div>
    </div>
+
+   <!-- 공지 -->
+    <div class="ban-wrapper">
+      <div class="ban_mid">
+        <img src="./assets/images/main_banner_middle.png" alt="중앙 배너">
+      </div>
+    </div>
+
+
+
   <!-- Why Choose Us -->
   <div>
     <div class="why-choose" style="margin-top: 150px;">
@@ -607,7 +643,7 @@ $('.slider-event .slick-prev').css('visibility', 'hidden');
     <h3 class="l-tag">나를 위한 근사한 휴가, 할인 혜택 더하기</h3>
   </div>
 
-<div class="slider slider-event container my-5">
+<div class="slider slider-event container my-5 event-arrow">
   <div class="card-box">
     <img src="./assets/images/main_prom_1.png" alt="이벤트1">
     <div class="card-text">강원 청정 여름맞이 특가</div>
