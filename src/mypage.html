@@ -11,6 +11,10 @@
         *{
             box-sizing: border-box;
         }
+        #header-top{
+            height: 100px;
+            background-color: white;
+        }
         #mypage-profile{
             width: 250px;
             height: 250px;
@@ -147,7 +151,7 @@
         }
         .mypage-subtitle{
             margin-left: 20px;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             color: #404040;
         }
@@ -157,7 +161,9 @@
             font-weight: bold;
             color: #666666;
         }
-
+        .mypage-plus-view:hover {
+            cursor: pointer;
+        }
         #heart-ghs{
             margin-top: 13px;
             display: flex;
@@ -228,6 +234,7 @@
     </script>
 </head>
 <body>
+    <div id="header-top"></div>
     <div id="header-mypage"></div>
     
     <img id="mypage-profile" src="./assets/icons/default_profile.png" alt="user-profile">
@@ -250,11 +257,10 @@
     <div class="reserve-data-section">
         <div class="reserve-data">
             <div class="mypage-subtitle">최근 예약 내역</div>
-            <div class="mypage-plus-view">예약 내역 전체 조회 
+            <div class="mypage-plus-view"><ins>예약 내역 전체 조회</ins>
                 <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.15694 7.71065L1.49994 13.3676L0.0859375 11.9536L5.03594 7.00365L0.0859375 2.05365L1.49994 0.639648L7.15694 6.29665C7.34441 6.48418 7.44972 6.73848 7.44972 7.00365C7.44972 7.26881 7.34441 7.52312 7.15694 7.71065Z" fill="#666666"/>
-</svg>
-
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.15694 7.71065L1.49994 13.3676L0.0859375 11.9536L5.03594 7.00365L0.0859375 2.05365L1.49994 0.639648L7.15694 6.29665C7.34441 6.48418 7.44972 6.73848 7.44972 7.00365C7.44972 7.26881 7.34441 7.52312 7.15694 7.71065Z" fill="#666666"/>
+                </svg>
             </div>
         </div>
         <div class="room-info-card">
@@ -276,7 +282,7 @@
     <div class="reserve-data-section">
         <div class="reserve-data">
             <div class="mypage-subtitle">관심 내역</div>
-            <div class="mypage-plus-view">관심 내역 전체 조회 
+            <div class="mypage-plus-view"><ins>관심 내역 전체 조회</ins>
                 <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.15694 7.71065L1.49994 13.3676L0.0859375 11.9536L5.03594 7.00365L0.0859375 2.05365L1.49994 0.639648L7.15694 6.29665C7.34441 6.48418 7.44972 6.73848 7.44972 7.00365C7.44972 7.26881 7.34441 7.52312 7.15694 7.71065Z" fill="#666666"/>
                 </svg>
