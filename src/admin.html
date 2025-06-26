@@ -42,8 +42,10 @@
         }
         .list-group-item.active {
             background-color: #BEE4E3 !important;  /* 배경색 */
-            color: #666666 !important;
+            color: #404040 !important;
             border-color: #BEE4E3 !important;     /* 테두리 색 */
+            font-weight: 600;
+            
         }
         .list-group-item.list-group-item-action {
             color: #666666;
@@ -159,12 +161,12 @@
         }
         .section-3{
             margin: 20px;
-            width: 100%;
+            width: 80%;
             background-color: #FCFCFC;
             border-radius: 10px;
             box-shadow: 0 19px 38px rgba(0,0,0,0.20), 0 5px 6px rgba(0,0,0,0.22);
         }
-        
+
         canvas{
             display: block;
             margin: auto;
@@ -242,7 +244,7 @@
         }
         #user-table{
             margin: 20px;
-            width: 750px;
+            width: 800px;
             color: #404040;
         }
         #pie-chart-section{
@@ -263,6 +265,7 @@
             display: table;
             width: 100%;
             table-layout: fixed;
+
         }
 
         tbody {
@@ -274,6 +277,7 @@
             display: table;
             width: 100%;
             table-layout: fixed;
+
         }
         
         .user-profile {
@@ -288,6 +292,29 @@
             height: 100px;
             background-color: white;
         }
+        
+        th:nth-child(2){
+            text-indent: -5px !important;
+        }
+        th:nth-child(3){
+            text-indent: -8px !important;
+        }
+        th:nth-child(4) {
+            text-indent: -13px !important;
+        }
+        
+         .section3-1{
+            width: 400px;
+            
+        }
+        /* #section-top > div:last-child {
+            margin-right: 5 !important;
+        }  */
+        #section-2 .section-2-box{
+            width: 580px;
+        }
+
+
 
     </style>
 </head>
@@ -360,7 +387,7 @@
                     <div class="section-2-box" id="section-2-3">Hosting Registration Date : <b>2024-12-14</b></div>
                     <div class="section-2-box" id="section-2-4">Business Phone Number : <b>02-1234-5678</b></div>
                 </div>
-                <div class="section-3">
+                <div class="section-3 section3-1">
                     <canvas id="donut-chart"></canvas>
                 </div>
             </div>
@@ -417,27 +444,27 @@
                     <thead class="thead-light">
                     <tr>
                         <th>User</th>
-                        <th>Email</th>
-                        <th>Joined Date</th>
-                        <th>Phone Number</th>
+                        <th class="headtr">Email</th>
+                        <th class="headtr">Joined Date</th>
+                        <th class="headtr">Phone Number</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-    <td><img src="assets/images/user-john.jpg" class="user-profile">John</td>
-    <td>john@example.com</td>
+    <td><img src="assets/images/user-john.jpg" class="user-profile">Emily</td>
+    <td>Emily@example.com</td>
     <td>2024-01-10</td>
     <td>010-1111-2222</td>
 </tr>
 <tr>
-    <td><img src="assets/images/user-emily.jpg" class="user-profile">Emily</td>
-    <td>emily@example.com</td>
+    <td><img src="assets/images/user-emily.jpg" class="user-profile">John</td>
+    <td>John@example.com</td>
     <td>2024-02-15</td>
     <td>010-2222-3333</td>
 </tr>
 <tr>
-    <td><img src="assets/images/user-mike.jpg" class="user-profile">Mike</td>
-    <td>mike@example.com</td>
+    <td><img src="assets/images/user-mike.jpg" class="user-profile">Lisa</td>
+    <td>Lisa@example.com</td>
     <td>2024-03-20</td>
     <td>010-3333-4444</td>
 </tr>
@@ -454,8 +481,8 @@
     <td>010-5555-6666</td>
 </tr>
 <tr>
-    <td><img src="assets/images/user-lisa.jpg" class="user-profile">Lisa</td>
-    <td>lisa@example.com</td>
+    <td><img src="assets/images/user-lisa.jpg" class="user-profile">Mike</td>
+    <td>Mike@example.com</td>
     <td>2024-06-05</td>
     <td>010-6666-7777</td>
 </tr>
@@ -480,11 +507,11 @@
             </div>
 
             <div class="section-middle1">
-                <div class="section-3">
-                    <canvas id="bubble-chart" width="500px" height="500px"></canvas>
+                <div class="section-3" >
+                    <canvas id="bubble-chart" width="500px" height="500px" style="margin-bottom:20px; margin-top:10px"></canvas>
                 </div>
                 <div class="section-3">
-                    <canvas id="bar-chart" width="480px" height="480px"></canvas>
+                    <canvas id="bar-chart" width="480px" height="480px" style="margin-bottom:20px; margin-top:10px"></canvas>
                 </div>
             </div>
             </div>
@@ -492,7 +519,7 @@
     </div>
 
 
-<div id="footer-admin"></div>
+<div id="footer-admin" style="margin-top: 300px;"></div>
 
 <script>
 		const ctx = document.querySelector("#donut-chart");
@@ -642,59 +669,46 @@
 
   //{x: 요일 index(0~6), y: 시간(0~23), r: 인원 수(버블 반지름)}
   const bubbleData = [
-      // 일요일 (x: 0)
-  { x: 0, y: 12, r: 10 },
-  { x: 0, y: 13, r: 9 },
-  { x: 0, y: 18, r: 12 },
-  { x: 0, y: 20, r: 13 },
-  { x: 0, y: 22, r: 15 },
-
-  // 토요일 (x: 6)
-  { x: 6, y: 12, r: 11 },
-  { x: 6, y: 13, r: 10 },
-  { x: 6, y: 18, r: 14 },
-  { x: 6, y: 19, r: 12 },
+  // 🟠 주말 체크인 시간 (x: 5,6 / y: 15~22)
+  { x: 5, y: 16, r: 14 },
+  { x: 5, y: 17, r: 13 },
+  { x: 5, y: 18, r: 16 },
+  { x: 5, y: 20, r: 15 },
+  { x: 6, y: 11, r: 12 },
+  { x: 6, y: 13, r: 11 },
+  { x: 6, y: 15, r: 14 },
+  { x: 6, y: 17, r: 12 },
+  { x: 6, y: 19, r: 15 },
   { x: 6, y: 21, r: 13 },
 
-  // 평일 점심시간 (x: 1~5, y: 12~13)
-  { x: 1, y: 12, r: 8 },
-  { x: 2, y: 13, r: 7 },
-  { x: 3, y: 12, r: 9 },
-  { x: 4, y: 13, r: 8 },
-  { x: 5, y: 12, r: 9 },
+  // 🔵 평일 체크인 시간 (x: 1~4 / y: 15~21)
+  { x: 1, y: 17, r: 10 },
+  { x: 2, y: 18, r: 11 },
+  { x: 3, y: 19, r: 9 },
+  { x: 4, y: 20, r: 10 },
 
-  // 평일 저녁시간 (x: 1~5, y: 18~21)
-  { x: 1, y: 18, r: 10 },
-  { x: 2, y: 19, r: 11 },
-  { x: 3, y: 20, r: 10 },
-  { x: 4, y: 21, r: 12 },
-  { x: 5, y: 19, r: 9 },
+  // ⚪ 점심 (유지)
+  { x: 1, y: 12, r: 6 },
+  { x: 2, y: 13, r: 5 },
+  { x: 3, y: 12, r: 5 },
 
-  // 주말 야간 (x: 0 or 6, y: 20~23)
-  { x: 0, y: 23, r: 13 },
-  { x: 6, y: 23, r: 14 },
+  // ⚫ 기타 주말 낮
+  { x: 5, y: 13, r: 6 },
+  { x: 6, y: 12, r: 7 },
 
-  // 평일 비중심 시간대 (소수)
-  { x: 2, y: 10, r: 5 },
-  { x: 3, y: 9, r: 4 },
-  { x: 4, y: 14, r: 6 },
+  // ⬛ 낮은 밀도 시간 (조금만)
+  { x: 2, y: 10, r: 4 },
+  { x: 4, y: 14, r: 4 }
+];
 
-  // 기타 (주말 오전)
-  { x: 0, y: 10, r: 7 },
-  { x: 6, y: 11, r: 8 },
-
-  // 평일 야간 소수
-  { x: 5, y: 22, r: 6 }
-
-  ];
 
   const data4 = {
     labels: weekdays,
     datasets: [{
       label: 'Guest Check-in Patterns',
       data: bubbleData,
-      backgroundColor: 'rgba(54, 162, 235, 0.6)',
-      borderColor: 'rgb(54, 162, 235)',
+      backgroundColor: 'rgba(255, 165, 0, 0.4)',
+      borderColor: 'rgba(255, 140, 0, 1)',
       borderWidth: 1
     }]
   };
@@ -769,7 +783,7 @@
 			label : 'women' ,
 			data : [ 100, 99, 80, 90, 122, 150, 120, 119, 99, 84, 99, 100 ],
 			//backgroundColor : 'rgba(203,206,145, .4)',
-			backgroundColor : 'rgba(165, 221, 155, 0.2)',
+			backgroundColor : 'rgb(165, 221, 155)',
 			borderColor :'rgb(165, 221, 155)',
 			borderWidth : 1,
 		};
@@ -777,7 +791,7 @@
 			label : 'man',
 			data : [ 80, 90, 200, 120, 90, 190, 130, 145, 100, 99, 101, 120 ],
 			//backgroundColor : 'rgba(203,206,145,.5)',
-			backgroundColor : 'rgba(242, 193, 141, 0.2)',
+			backgroundColor : 'rgb(242, 193, 141)',
 			borderColor : 'rgb(242, 193, 141)',
 			borderWidth : 1,
 		};
